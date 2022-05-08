@@ -32,6 +32,9 @@
 <br>
 <p align="center">
   <img  width="500" src="https://media1.giphy.com/media/hS4Dz87diTpnDXf98E/200w.webp?cid=ecf05e47t8sjljek9i4ma96rxsv6gr3jfu37v4od47es57og&rid=200w.webp&ct=g">
+  <p align="center">
+    <i>isn't it?</i>
+  </p>
 </p>
 
 ### Now that we have rejuvenated the curiosity inside you, tada! you are good to go to the week 1:tada:
