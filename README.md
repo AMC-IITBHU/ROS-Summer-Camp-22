@@ -4,10 +4,7 @@ This repository will take you to the world of Robots Operating System. Are you r
 
 So, before diving in, let's understand the flow of the repo. The whole content is divided into three weeks, Task 1, Task 2 and Task 3, and we will be uploading one subpart per week. Each subpart consists of some task, which you need to submit at the end of each week on the submission link provided in the respective readme files. Your submissions/ performance will be monitored and evaluated by us. 
 
-Join this discord server where your seniors will be there to mentor you, we will have some fun, some chit chat as well as some ROS stuff to do!!
-
-## Pre-requisites
-The main prerequisite is to install Ubuntu in your system. Dual boot your laptop with Ubuntu 18.04/20.04 and then move to Task 1. If you have any issues while dual booting, our discord server is there to help you :)
+Join this [discord server](https://discord.gg/7upTzmEjRf) where your seniors will be there to mentor you, we will have some fun, some chit chat as well as some ROS stuff to do!!
 
 
 ## An Introduction to Robot Operating System (ROS)
@@ -19,11 +16,12 @@ The concept of ROS goes far beyond just a framework. ROS is an OS in concept bec
 
 ROS can be installed on a single-board computer (SBC) like Raspberry Pi-level and upwards with Ubuntu/Debian distro. However, other platforms are supported experimentally or by the community.
 
-Here's a cool video for you to know what exactly is ROS
+Here's a cool video for you to know what exactly we can do with ROS:-
 
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/Dm7HnQb8n9Y/0.jpg)](https://www.youtube.com/watch?v=Dm7HnQb8n9Y&ab_channel=BloombergQuicktake%3AOriginals "ros introduction")
 
-
+## Pre-requisites
+The main prerequisite is to install Ubuntu in your system. Dual boot your laptop with Ubuntu 18.04/20.04 and then move to Task 1. If you have any issues while dual booting, our discord server is there to help you :)
 
 
 
