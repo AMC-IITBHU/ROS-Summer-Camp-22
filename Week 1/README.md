@@ -15,14 +15,12 @@
 Also just look at [gedit](https://www.howtogeek.com/413514/how-to-edit-text-files-graphically-on-linux-with-gedit/#:~:text=To%20start%20gedit%20from%20the,working%20on%20with%20no%20distractions.) once to access the usual text editor from command line.
 
 ## Now that you are familiar with linux, it is time for you to ... INSTALL ROS!!!
-### Follow these [instructions](http://wiki.ros.org/noetic/Installation/Ubuntu) to install ROS in your system (for Ubuntu 20.04 users). Ubuntu 18.04 users use [this](http://wiki.ros.org/melodic/Installation/Ubuntu).
+### Follow these [instructions](http://wiki.ros.org/noetic/Installation/Ubuntu) to install ROS in your system (for Ubuntu 20.04 users). Ubuntu 18.04 users use [this](http://wiki.ros.org/melodic/Installation/Ubuntu). Again, if you are stuck, you know who to reach out to :upside_down_face:
 
-#### Again, if you are stuck, you know who to reach out to :upside_down_face:
-
-#### Moving on to this week's content, we have covered catkin packages, and a few concepts:-
+### Watch [this short video](https://vimeo.com/639236696) to get a quick introduction of what ROS exactly is! Moving on to this week's content, we have covered catkin packages, and a few concepts:-
 - ROS Topics and ROS Nodes
 - Msg and Srv
 - Publisher and Subscriber
 - Services and Clients
 
-#### Head over to Task 1 now.
+### Head over to Task 1 now.
