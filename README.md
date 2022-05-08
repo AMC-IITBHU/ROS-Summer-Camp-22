@@ -2,7 +2,7 @@
 Hello Robot Enthusiasts!!
 This repository will take you to the world of Robots Operating System. Are you ready for it?
 
-So, before diving in, let's understand the flow of the repo. The whole content is divided into three weeks, Task 1, Task 2 and Task 3, and we will be uploading one subpart per week. Each subpart consists of some task, which you need to submit at the end of each week on the submission link provided in the respective readme files. Your submissions/ performance will be monitored and evaluated by us. 
+So, before diving in, let's understand the flow of the repo. The whole content is divided into three weeks, Week 1, Week 2 and Week 3, and we will be uploading one subpart per week. Each subpart consists of some task, which you need to submit at the end of each week on the submission link provided in the respective readme files. Your submissions/ performance will be monitored and evaluated by us. 
 
 Join this [discord server](https://discord.gg/7upTzmEjRf) where your seniors will be there to mentor you, we will have some fun, some chit chat as well as some ROS stuff to do!!
 
@@ -21,7 +21,7 @@ Here's a cool video for you to know what exactly we can do with ROS:-
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/Dm7HnQb8n9Y/0.jpg)](https://www.youtube.com/watch?v=Dm7HnQb8n9Y&ab_channel=BloombergQuicktake%3AOriginals "ros introduction")
 
 ## Pre-requisites
-The main prerequisite is to install Ubuntu in your system. Dual boot your laptop with Ubuntu 18.04/20.04 and then move to Task 1. If you have any issues while dual booting, our discord server is there to help you :)
+The main prerequisite is to install Ubuntu in your system. Dual boot your laptop with Ubuntu 18.04/20.04 and then move to Week 1. If you have any issues while dual booting, our discord server is there to help you :)
 
 
 
