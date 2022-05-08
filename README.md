@@ -21,7 +21,7 @@ ROS can be installed on a single-board computer (SBC) like Raspberry Pi-level an
 
 Here's a cool video for you to know what exactly is ROS
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/Dm7HnQb8n9Y/0.jpg)](https://www.youtu.be/Dm7HnQb8n9Y "ros introduction")
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/Dm7HnQb8n9Y/0.jpg)](https://www.youtube/Dm7HnQb8n9Y "ros introduction")
 
 
 
