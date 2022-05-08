@@ -37,8 +37,23 @@ if you have Ubuntu 18.04, you need to install ROS melodic
 sudo apt install ros-melodic-desktop-full
 ```
 
+4. Now you also need to setup your enviornment
+```
+echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+```
 
+5. Install some dependencies 
+```
+sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
+```
 
+With the following, you can initialize rosdep.
+
+```
+sudo rosdep init
+rosdep update
+```
 
 
 Now that you have successfully installed ROS, head over to [creating a package](./creating a package.md
