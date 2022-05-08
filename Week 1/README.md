@@ -23,9 +23,21 @@ curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo ap
 
 ```
 sudo apt update
-sudo apt install ros-noetic-desktop-full
-
 ```
+
+There are a two versions of ROS - melodic and noetic
+
+If you have Ubuntu 20.04, you need to install ROS noetic
+```
+sudo apt install ros-noetic-desktop-full
+```
+
+if you have Ubuntu 18.04, you need to install ROS melodic
+```
+sudo apt install ros-melodic-desktop-full
+```
+
+
 
 
 
