@@ -17,6 +17,10 @@ Also just look at [gedit](https://www.howtogeek.com/413514/how-to-edit-text-file
 ## Now that you are familiar with linux, it is time for you to ... INSTALL ROS!!!
 ### Follow these [instructions](http://wiki.ros.org/noetic/Installation/Ubuntu) to install ROS in your system (for Ubuntu 20.04 users). Ubuntu 18.04 users use [this](http://wiki.ros.org/melodic/Installation/Ubuntu). Again, if you are stuck, you know who to reach out to :upside_down_face:
 
+<p align="center">
+  <img src="https://media2.giphy.com/media/PlayjhCco9jHBYrd9w/200w.webp?cid=ecf05e47umqpd99b9kcdp476bdfjouok17f57cywavis1ker&rid=200w.webp&ct=g">
+  </p>
+
 ### Watch [this short video](https://vimeo.com/639236696) to get a quick introduction of what ROS exactly is! Moving on to this week's content, we have covered catkin packages, and a few concepts:-
 - ROS Topics and ROS Nodes
 - Msg and Srv
