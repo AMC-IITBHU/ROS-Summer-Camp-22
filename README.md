@@ -18,7 +18,7 @@
 
 ### Join this [discord server](https://discord.gg/7upTzmEjRf) to know your peers and seniors well, have some fun with them, but don't forget that you have got some serious stuff to do:raised_eyebrow: We will help you go through the repo and to complete your tasks there. So make sure to join it:slightly_smiling_face:
 
-## Yeah, but why should I learn it??
+## Yeah, but why should I learn ROS??
 ### Okay, wait... Why don't you watch this first :point_down:
 
 <p align="center">
