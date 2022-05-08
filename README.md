@@ -19,6 +19,10 @@ The concept of ROS goes far beyond just a framework. ROS is an OS in concept bec
 
 ROS can be installed on a single-board computer (SBC) like Raspberry Pi-level and upwards with Ubuntu/Debian distro. However, other platforms are supported experimentally or by the community.
 
+Here's a cool video for you to know what exactly is ROS
+
+[![IMAGE ALT TEXT](http://img.youtube.com/watch?v=Dm7HnQb8n9Y&ab_channel=BloombergQuicktake%3AOriginals/0.jpg)](https://www.youtube.com/watch?v=Dm7HnQb8n9Y&ab_channel=BloombergQuicktake%3AOriginals "ros introduction")
+
 
 
 
