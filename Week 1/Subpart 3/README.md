@@ -38,7 +38,7 @@ The concept of topics, publishers, and subscribers is illustrated in the figure:
 <details>
   <summary><h1>2. Coding for Publishers and Subscribers</h1></summary>
   
-  Publishers and Subscribers can be used by either rostopic pub and rostopic sub respectively or by writting a node in either python or c++. Here I will be explaining you how to write code in python as it is quite easy to understand but if want to learn c++ just tell us in discord and we will guide you for the same
+  Publishers and Subscribers can be used by either rostopic pub and rostopic echo respectively or by writting a node in either python or c++. Here I will be explaining you how to write code in python as it is quite easy to understand but if want to learn c++ just tell us in discord and we will guide you for the same
   
   <br>
 <p align="center">
@@ -61,21 +61,13 @@ The concept of topics, publishers, and subscribers is illustrated in the figure:
   from std_msgs.msg import String
   #function to publish messages at the rate of 2 messages per second
   def messagePublisher():
-       #define a topic to which the messages will be published
-       message_publisher = rospy.Publisher(‘messageTopic’, String, queue_size=10)
-      #initialize the Publisher node. 
-      #Setting anonymous=True will append random integers at the end of our publisher node
+      message_publisher = rospy.Publisher(‘messageTopic’, String, queue_size=10)
       rospy.init_node(‘messagePubNode’, anonymous=True)
-      #publishes at a rate of 2 messages per second
       rate = rospy.Rate(2)
-      #Keep publishing the messages until the user interrupts 
       while not rospy.is_shutdown():
       message = “ROS Tutorial by Arsalan”
-      #display the message on the terminal
       rospy.loginfo(‘Published: ‘ + message)
-      #publish the message to the topic
       message_publisher.publish(message)
-      #rate.sleep() will wait enough until the node publishes the     message to the topic
       rate.sleep()
   if __name__ == ‘__main__’:
       try:
@@ -110,9 +102,19 @@ The concept of topics, publishers, and subscribers is illustrated in the figure:
   from std_msgs.msg import String
   ```
   
-  The first line is just a comment, then why are we explaining this. Well the thing is in the line this comment mentions the path of your python interpreter. In the subsequent lines we have imported the required python packages. First is rospy
+  The first line is just a comment, then why are we explaining this. Well the thing is in the line this comment mentions the path of your python interpreter. In the subsequent lines we have imported the required python packages. First is rospy which is python client library for ROS. Second is std_msgs.msg. The std_msgs.msg import is so that we can reuse the std_msgs/String message type (a simple string container) for publishing. 
   
+  Next is the function  messagePublisher 
   
+  ```python
+  message_publisher = rospy.Publisher(‘messageTopic’, String, queue_size=10)
+  rospy.init_node(‘messagePubNode’, anonymous=True)
+  ```
+  
+  This section of code defines the talker's interface to the rest of ROS. 
+  pub = rospy.Publisher("chatter", String, queue_size=10) declares that your node is publishing to the chatter topic using the message type String. String here is actually the class std_msgs.msg.String. The queue_size argument is to limits the amount of queued messages if any subscriber is not receiving them fast enough.
+  
+  The next line, rospy.init_node(NAME, ...), is very important as it tells rospy the name of your node -- until rospy has this information, it cannot start communicating with the ROS Master. In this case, your node will take on the name talker.
 
   
 </details>  
