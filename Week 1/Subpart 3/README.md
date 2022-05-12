@@ -25,7 +25,11 @@ This publisher and subscriber communication has the following characteristics:
 
 The concept of topics, publishers, and subscribers is illustrated in the figure:
   
-  
+<br>
+<p align="center">
+  <img src="https://github.com/AMC-IITBHU/ROS-Summer-Camp-22/blob/main/Week%201/assets/pub_and_sub.png">
+</p>
+<br>  
 
   
 </details>
