@@ -157,6 +157,7 @@ Note that for the real world analogy I used numbers with dots as topic name. Thi
 
 Technically speaking, the messages are sent over TCP/IP. The ROS libraries that you will use on your code, will provide you with enough abstraction so you don’t have to deal with the TCP/IP layer.
 
+## Sum it up!
 Now that you have gotten the big picture with the real world analogy, here are some conclusion points so you can have a quick and actionable summary:
 
 - When to use a topic, is often when you need to send a data stream. The data stream is unidirectional. Some nodes can publish on the topic, and some nodes can subscribe to the topic. There is no response from a subscriber to a publisher, the data is only going one way.
