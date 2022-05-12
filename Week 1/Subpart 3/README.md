@@ -44,6 +44,48 @@ The concept of topics, publishers, and subscribers is illustrated in the figure:
 </p>
 <br>  
   
+  <details>
+  <summary><h1>Publishers</h1></summary>
+    
+    Move to the ros package that you created before. Inside the package create a folder named scripts. Inside the scripts folder create a python file with any name you like. Here I am using the name "learn_publishers.py"
+    
+    In the python file put the following code 
+    
+    ```
+    #!/usr/bin/env python3
+    #import the rospy package and the String message type
+import rospy
+from std_msgs.msg import String
+#function to publish messages at the rate of 2 messages per second
+def messagePublisher():
+     #define a topic to which the messages will be published
+     message_publisher = rospy.Publisher(‘messageTopic’, String, queue_size=10)
+    #initialize the Publisher node. 
+    #Setting anonymous=True will append random integers at the end of our publisher node
+    rospy.init_node(‘messagePubNode’, anonymous=True)
+    #publishes at a rate of 2 messages per second
+    rate = rospy.Rate(2)
+    #Keep publishing the messages until the user interrupts 
+    while not rospy.is_shutdown():
+    message = “ROS Tutorial by Arsalan”
+    #display the message on the terminal
+    rospy.loginfo(‘Published: ‘ + message)
+    #publish the message to the topic
+    message_publisher.publish(message)
+    #rate.sleep() will wait enough until the node publishes the     message to the topic
+    rate.sleep()
+if __name__ == ‘__main__’:
+    try:
+        messagePublisher()
+    #capture the Interrupt signals
+    except rospy.ROSInterruptException:
+        pass
+    ```
+    
+    Now let us decode the code line by line
+    
+  </details>
+  
 </details>  
 
 
