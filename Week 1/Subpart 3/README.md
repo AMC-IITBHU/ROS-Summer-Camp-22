@@ -50,7 +50,7 @@ The concept of topics, publishers, and subscribers is illustrated in the figure:
     Move to the ros package that you created before. Inside the package create a folder named scripts. Inside the scripts folder create a python file with any name you like. Here I am using the name "learn_publishers.py"
     
     In the python file put the following code 
-    
+    ```
     ```bash
     #!/usr/bin/env python3
     #import the rospy package and the String message type
@@ -81,7 +81,7 @@ The concept of topics, publishers, and subscribers is illustrated in the figure:
         except rospy.ROSInterruptException:
             pass
     ```
-    
+    ```
     Now let us decode the code line by line
     
   </details>
