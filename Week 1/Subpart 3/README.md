@@ -44,8 +44,7 @@ The concept of topics, publishers, and subscribers is illustrated in the figure:
 </p>
 <br>  
   
-  <details>
-  <summary><h1>Publishers</h1></summary>
+  
     
     Move to the ros package that you created before. Inside the package create a folder named scripts. Inside the scripts folder create a python file with any name you like. Here I am using the name "learn_publishers.py"
     
@@ -84,7 +83,7 @@ The concept of topics, publishers, and subscribers is illustrated in the figure:
 
     Now let us decode the code line by line
     
-  </details>
+
   
 </details>  
 
