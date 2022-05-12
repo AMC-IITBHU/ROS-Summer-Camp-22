@@ -28,6 +28,7 @@ Also just look at [gedit](https://www.howtogeek.com/413514/how-to-edit-text-file
   </a>
 </p>
 <br>
+
 ### Moving on to this week's content, we have covered catkin packages, and a few concepts:-
 - ROS Topics and ROS Nodes
 - Msg and Srv
