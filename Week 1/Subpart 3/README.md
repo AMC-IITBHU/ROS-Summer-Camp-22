@@ -51,7 +51,7 @@ The concept of topics, publishers, and subscribers is illustrated in the figure:
     
     In the python file put the following code 
 
-    ````bash
+    ```python
     #!/usr/bin/env python3
     #import the rospy package and the String message type
     import rospy
@@ -80,7 +80,7 @@ The concept of topics, publishers, and subscribers is illustrated in the figure:
         #capture the Interrupt signals
         except rospy.ROSInterruptException:
             pass
-    ````
+    ```
 
     Now let us decode the code line by line
     
