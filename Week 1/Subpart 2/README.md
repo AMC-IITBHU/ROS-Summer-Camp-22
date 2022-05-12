@@ -68,7 +68,12 @@ The hardware state of the robot is published, and both the motion planning and p
 * ROS nodes are not internally linked. They communicate only through topics and services. So, if one node crashes, others are safe.
 * There are some client libraries available in ROS such as roscpp and rospy that allow nodes written in different languages (C++/ Python) to communicate. So, your are no more bounded to write all your code in a single programming language.
 
-#### Now that you have a conceptual understanding of nodes, you can visit the following link to learn how to get info about a node and how to run one:
+## Hell of theoretical stuff, isn't it?
+<p align="center">
+  <img width=500 src="https://media0.giphy.com/media/LTYT5GTIiAMBa/giphy.webp?cid=ecf05e47ema8hvix956qus7ss40s392hbyyetc7myruj6pjb&rid=giphy.webp&ct=g">
+  </p>
+  
+#### Well then, back to technical stuff. Hit that button👇 to learn how to run a node and get info about one:
 * [Understanding ROS Nodes](http://wiki.ros.org/ROS/Tutorials/UnderstandingNodes)<br>
 #### In the subpart 3, you will learn how to write a node.
 </details>
@@ -79,9 +84,7 @@ The hardware state of the robot is published, and both the motion planning and p
 A topic is a named bus over which nodes exchange messages.
   
 ## Our first publisher
-  Let us use a real world analogy to understand ROS topics. I will use an analogy with a radio transmitter and receiver. As this is a simplified analogy, not everything I will say about radio will be correct, but the point here is to make you understand ROS topics.
-  
-  Let’s suppose we have one radio transmitter. This radio transmitter will send some data on a given frequency. To make things easier for people to remember, the frequency will be represented by a number attached to the name of the radio. In this example, we have the 98.7 frequency. You can think of 98.7 also as a name, so you know that if you want to receive music from the radio station, you need to connect your device to “98.7”.
+  Let's understand ROS topics through a real world analogy of radio transmitter and receiver. Suppose we have one radio transmitter. It will send some data on a given frequency, say 98.7 frequency, so you know that if you want to receive music from the radio station, you need to connect your device to “98.7”.
 
   You can see the green box here, 98.7, as a ROS topic, and the radio transmitter is a publisher of this topic. So for this case, a data stream is sent over the 98.7 topic.
 <br>
@@ -91,10 +94,9 @@ A topic is a named bus over which nodes exchange messages.
   <br>
   
 ## Time to add some subscribers
-Now, maybe you want to listen to the radio station from your phone. You will ask your phone to listen to 98.7. In this case, the phone is a subscriber of the topic. 
-  To play the music on your phone, from the radio transmitter, you also need to send and receive the same kind of message. Here, if the radio transmitter is sending AM signal over the topic, and if, on your phone, you are trying to decode FM signal, then it will not work! The phone will have the right frequency but won’t manage to decode the signal. That’s why both the publisher and subscriber must send messages with the same data structure.
+  Suppose, your phone receives messages from the 98.7 topic. Your phone is then a subscriber of the topic. But for that, your phone must be able to decode the type of message that the radio transmitter is sending, apart from being on the right frequency. If it is sending AM signal, your phone should decode it. That’s why **both the publisher and subscriber must send messages with the same data structure**.
 
-So we have our radio transmitter which is a publisher on the 98.7 topic, using an AM signal. The phone will subscribe to the 98.7 topic, and will also decode an AM signal. The communication is now complete!
+  So we have our radio transmitter and the phone, both using AM signals. They respectively publish and subscribe to the 98.7 topic.
   <br>
   <p align="center">
     <img src="https://user-images.githubusercontent.com/77807055/168093045-2d9daad5-1844-4a1c-a8e5-bbe18faf9b05.jpg">
@@ -102,44 +104,43 @@ So we have our radio transmitter which is a publisher on the 98.7 topic, using a
   <br>
   
 ## Multiple subscribers for one topic
-Having one subscriber is nice, but what if you also want to listen to the radio station from another device, or from your car ? With radio as you know it, you just need to connect all your device and car to the 98.7 radio. Also, both your device and car need to be able to decode AM signal.
+What if you also want to listen to the radio station from your car? You just need to connect your car to the 98.7 radio. Your car should also be able to decode AM signal.
   <br>
   <p align="center">
     <img src="https://user-images.githubusercontent.com/77807055/168093110-3734e565-fcac-438a-9ffe-0cddc1be553c.jpg">
   </p>
   <br>
-With ROS, you can have multiple subscribers for the same topic. You can see here an example with a topic and 3 subscribers. And as you can guess, a subscriber is not aware of the other subscribers, and is not aware of who is publishing the data. It only knows it is receiving data from the 98.7 topic. Thus, we can say that subscribers are anonymous.
+With ROS, you can have multiple subscribers for the same topic. A subscriber is not aware of the other subscribers and publisher. It only knows it is receiving data from the 98.7 topic. Thus, we can say that subscribers are anonymous.
   
 ## Multiple publishers for one topic
-You can have many subscribers for one topic, but on the other side you can also have many publishers for the same topic. Imagine another radio transmitter which is also publishing an AM signal to 98.7. It can be the same radio station, it can also be another radio station. Sometimes, when you are driving, you arrive in a zone where 2 radio stations are publishing on the same frequency. In this case, you have 2 publishers on the 98.7 topic. All the subscribers will receive the messages from both publishers.
+You can also have many publishers for the same topic. Imagine another radio transmitter which is also publishing an AM signal to 98.7. It can be the same radio station, it can also be another radio station. All the subscribers will receive the messages from both publishers.
 <br>
   <p align="center">
     <img src="https://user-images.githubusercontent.com/77807055/168093198-852db4ad-6ee4-4fb8-a01d-44fb5abff555.jpg">
   </p>
   <br>
-On this picture, all blue boxes are ROS nodes. You have the radio transmitter node number 1, the radio transmitter node number 2, and then you have a node for the smartphone, the radio player, and the car. Some nodes contain a publisher to the 98.7 topic, some nodes contain a subscriber for this topic. As you notice, all publishers and subscribers are sending and receiving the same kind of data.
   
-  We’ve just seen before that subscribers are anonymous. Well, that also works for ROS publishers. A publisher is not aware of the other publishers on the topic, and is not aware of who is receiving the data. It only publishes data to the topic, and that’s it. Publishers on a ROS topic are anonymous.
-
-So, each node which is publishing or subscribing to the topic is totally independent. Any combination is possible. For example, you could have 3 subscribers on the topic and no publisher. In this case, well, it’s still working, but the subscribers will just receive no data. If you have 2 publishers on the topic, and no subscriber, the data is just sent and no one receives it. Another combination: you have only one radio transmitter which is publishing on the 98.7 topic, and only the car is subscribing to the topic. I’ll stop there, I guess you see the point.
+A publisher is also not aware of the other publishers and the subscriber of the topic. It only publishes data to the topic, and that’s it. Publishers on a ROS topic are anonymous.
+  
+So, each node which is publishing or subscribing to the topic is totally independent. For example, you could have 3 subscribers on the topic and no publisher. It’s still working, but the subscribers will just receive no data. If you have 2 publishers on the topic, and no subscriber, the data is just sent and no one receives it.
 
 ## Multiple publishers/subscribers inside one node
-For now you saw that you can publish data on a topic, and subscribe to it to receive data. A ROS node is not limited to that. In fact, a node can publish and subscribe on many different topics.
+A node can publish and subscribe on many different topics.
   <br>
   <p align="center">
     <img src="https://user-images.githubusercontent.com/77807055/168093295-82bc6726-94c9-414e-8009-afb399b4863d.jpg">
   </p>
   <br>
-Let’s say that the radio transmitter node number 2 is publishing AM signal on the 98.7 topic, and FM signal on the 101.3 topic. The driver of the car just chose to listen to the radio 2, so the car is now subscribing to the 101.3 topic, and decoding FM signal (of course, the car needs to be able to decode both kind of signals and be aware of the signal associated with the radio name).
+  
+Let’s say that the radio transmitter node number 2 is publishing AM signal on the 98.7 topic, and FM signal on the 101.3 topic. The car can subscribe to the 101.3 topic, and decode FM signal at the same time.
 
-A node can contain multiple publishers, but also subscribers.
-
-Now, imagine that the car, while listening to the radio, is publishing its coordinates to a car_location topic.
+A node can contain multiple publishers, but also subscribers. The car, while listening to the radio, can publish its coordinates to a car_location topic.
   <br>
   <p align="center">
     <img src="https://user-images.githubusercontent.com/77807055/168093352-abc57d22-7716-4afd-a707-492ebd4867a6.jpg">
   </p>
   <br>
+  
 The car node has now one subscriber on the 98.7 topic, and one publisher on the car_location topic. The computer node is subscribing to the car location topic, and for the communication to be successful, both nodes are sending and receiving the same kind of message.
 
 Well, that’s it for the analogy! You should now have a better comprehension of what is a ROS topic and when it is useful.
@@ -149,16 +150,21 @@ Well, that’s it for the analogy! You should now have a better comprehension of
 Note that for the real world analogy I used numbers with dots as topic name. This is not valid, a topic name must start with a letter, followed by letters, numbers, underscores, tildes, and slashes. For example, you could a topic named “/radio_98_7”.
 
 Technically speaking, the messages are sent over TCP/IP. The ROS libraries that you will use on your code, will provide you with enough abstraction so you don’t have to deal with the TCP/IP layer.
+  
+### Aren't topics tired of being the middleman😢?
+  <br>
+  <p align="center">
+    <img width=500 src="https://media0.giphy.com/media/l396WS0aAT9hQ3HmU/200w.webp?cid=ecf05e477qxfmxy89rah3o621zmkeuwyg2prpjzbu56e44yr&rid=200w.webp&ct=g">
+    <br><i>Topics would love the internet, isn't it? 🙁</i>
+  </p>
+  <br>
 
-## Sum it up!
-Now that you have gotten the big picture with the real world analogy, here are some conclusion points so you can have a quick and actionable summary:
-
-- When to use a topic, is often when you need to send a data stream. The data stream is unidirectional. Some nodes can publish on the topic, and some nodes can subscribe to the topic. There is no response from a subscriber to a publisher, the data is only going one way.
-- Publishers and subscribers are anonymous. A publishers only knows it is publishing to a topic, and a subscriber only knows it is subscribing to a topic. Nothing else.
+## Points to Note!
 - A topic has a message type. All publishers and subscribers on this topic must use the message type associated with the topic.
 - As you already know, you can write a node in multiple languages, using for example the roscpp library for C++, and rospy library for Python. Well, those libraries also include the Topic functionality. So, you can create a publisher or subscriber in any ROS supported language you want, directly inside ROS nodes.
 - When a node wants to publish something, it will inform the ROS master. When another node wants to subscribe to a topic, it will ask the ROS master from where it can get the data. You can see the ROS master as a DNS server for nodes to find where to communicate.
-- Finally, a node can contain many publishers and subscribers for many different topics.
+
+  
 </details>
 
 <details>
