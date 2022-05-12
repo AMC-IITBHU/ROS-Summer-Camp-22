@@ -38,6 +38,8 @@ The concept of topics, publishers, and subscribers is illustrated in the figure:
 <details>
   <summary><h1>2. Coding for Publishers and Subscribers</h1></summary>
   
+  Publishers and Subscribers can be used by either rostopic pub and rostopic sub respectively or by writting a node in either python or c++. Here I will be explaining you how to write code in python as it is quite easy to understand but if want to learn c++ just tell us in discord and we will guide you for the same
+  
   <br>
 <p align="center">
   <img src="https://github.com/AMC-IITBHU/ROS-Summer-Camp-22/blob/main/Week%201/assets/pub_and_sub.jpeg">
@@ -45,6 +47,8 @@ The concept of topics, publishers, and subscribers is illustrated in the figure:
 <br>  
   
 #Publishers
+  
+  
 
   Move to the ros package that you created before. Inside the package create a folder named scripts. Inside the scripts folder create a python file with any name you like. Here I am using the name "learn_publishers.py"
 
@@ -80,9 +84,35 @@ The concept of topics, publishers, and subscribers is illustrated in the figure:
       except rospy.ROSInterruptException:
           pass
   ```
+  
+  Now open the terminal in the scripts folder and type
+  
+  ```bash
+  chmod a+x learn_publishers.py #name of the python file created
+  ```
+  
+  Now open up a terminal and start roscore
+  
+  Now open up another terminal and type the following code to run the node for the publsihing the message
+  
+  ```bash
+  cd ~/catkin_ws
+  source devel/setup.bash
+  rosrun beginner_tutorials learn_publishers.py
+  ```
 
-  Now let us decode the code line by line
-
+  Now let us decode the above code line by line
+  
+  ```python
+  #!/usr/bin/env python3
+  #import the rospy package and the String message type
+  import rospy
+  from std_msgs.msg import String
+  ```
+  
+  The first line is just a comment, then why are we explaining this. Well the thing is in the line this comment mentions the path of your python interpreter. In the subsequent lines we have imported the required python packages. First is rospy
+  
+  
 
   
 </details>  
