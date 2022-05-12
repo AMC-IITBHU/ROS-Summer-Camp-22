@@ -21,7 +21,11 @@ Also just look at [gedit](https://www.howtogeek.com/413514/how-to-edit-text-file
   <img src="https://media2.giphy.com/media/PlayjhCco9jHBYrd9w/200w.webp?cid=ecf05e47umqpd99b9kcdp476bdfjouok17f57cywavis1ker&rid=200w.webp&ct=g">
   </p>
 
-### Watch [this short video](https://vimeo.com/639236696) to get a quick introduction of what ROS exactly is! Moving on to this week's content, we have covered catkin packages, and a few concepts:-
+### Watch this short video to get a quick introduction of what ROS exactly is!
+<p align="center">
+  <a href="https://vimeo.com/639236696">
+    <img src="
+### Moving on to this week's content, we have covered catkin packages, and a few concepts:-
 - ROS Topics and ROS Nodes
 - Msg and Srv
 - Publisher and Subscriber
