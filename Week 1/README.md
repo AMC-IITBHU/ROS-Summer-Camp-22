@@ -27,4 +27,4 @@ Also just look at [gedit](https://www.howtogeek.com/413514/how-to-edit-text-file
 - Publisher and Subscriber
 - Services and Clients
 
-### Head over to Task 1 now.
+### Head over to Subpart 1 now.
