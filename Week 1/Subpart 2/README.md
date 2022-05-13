@@ -311,7 +311,7 @@ Head over to the following tutorial to see in depth how messages are actually cr
 #### As I promised, this is the last component. If you have come down this far, then trust me...
   <br>
   <p align="center">
-    <img src="https://media1.giphy.com/media/loA2it5PFS5fBt6Ud3/200w.webp?cid=ecf05e47uuu4e31br0s8ig6carft73xggwova2me5kigmclb&rid=200w.webp&ct=g">
+    <img width=500 src="https://media1.giphy.com/media/loA2it5PFS5fBt6Ud3/200w.webp?cid=ecf05e47uuu4e31br0s8ig6carft73xggwova2me5kigmclb&rid=200w.webp&ct=g">
   </p>
   <br>
   
