@@ -81,12 +81,12 @@ The hardware state of the robot is published, and both the motion planning and p
 <details>
   <summary><h1>2. ROS Topics</h1></summary>
   
-A topic is a named bus over which nodes exchange messages.
+**A topic is a named bus over which nodes exchange messages**.
   
 ## Our first publisher
   Let's understand ROS topics through a real world analogy of radio transmitter and receiver. Suppose we have one radio transmitter. It will send some data on a given frequency, say 98.7 frequency, so you know that if you want to receive music from the radio station, you need to connect your device to “98.7”.
 
-  You can see the green box here, 98.7, as a ROS topic, and the radio transmitter is a publisher of this topic. So for this case, a data stream is sent over the 98.7 topic.
+  You can see the green box here, 98.7, as a ROS topic, and **the radio transmitter is a publisher** of this topic. So for this case, a data stream is sent over the 98.7 topic.
 <br>
   <p align="center">
     <img src="https://user-images.githubusercontent.com/77807055/168092995-7addc220-8c2d-4f50-969b-2b0e403169a0.jpg">
@@ -94,7 +94,7 @@ A topic is a named bus over which nodes exchange messages.
   <br>
   
 ## Time to add some subscribers
-  Suppose, your phone receives messages from the 98.7 topic. Your phone is then a subscriber of the topic. But for that, your phone must be able to decode the type of message that the radio transmitter is sending, apart from being on the right frequency. If it is sending AM signal, your phone should decode it. That’s why **both the publisher and subscriber must send messages with the same data structure**.
+  Suppose, your phone receives messages from the 98.7 topic. **Your phone is then a subscriber of the topic**. But for that, your phone must be able to decode the type of message that the radio transmitter is sending, apart from being on the right frequency. If it is sending AM signal, your phone should decode it. That’s why **both the publisher and subscriber must send messages with the same data structure**.
 
   So we have our radio transmitter and the phone, both using AM signals. They respectively publish and subscribe to the 98.7 topic.
   <br>
@@ -110,17 +110,18 @@ What if you also want to listen to the radio station from your car? You just nee
     <img src="https://user-images.githubusercontent.com/77807055/168093110-3734e565-fcac-438a-9ffe-0cddc1be553c.jpg">
   </p>
   <br>
-With ROS, you can have multiple subscribers for the same topic. A subscriber is not aware of the other subscribers and publisher. It only knows it is receiving data from the 98.7 topic. Thus, we can say that subscribers are anonymous.
+  
+With ROS, **you can have multiple subscribers for the same topic**. A subscriber is not aware of the other subscribers and publisher. It only knows it is receiving data from the 98.7 topic. Thus, we can say that **subscribers are anonymous.**
   
 ## Multiple publishers for one topic
-You can also have many publishers for the same topic. Imagine another radio transmitter which is also publishing an AM signal to 98.7. It can be the same radio station, it can also be another radio station. All the subscribers will receive the messages from both publishers.
+**You can also have many publishers for the same topic**. Imagine another radio transmitter which is also publishing an AM signal to 98.7. It can be the same radio station, it can also be another radio station. All the subscribers will receive the messages from both publishers.
 <br>
   <p align="center">
     <img src="https://user-images.githubusercontent.com/77807055/168093198-852db4ad-6ee4-4fb8-a01d-44fb5abff555.jpg">
   </p>
   <br>
   
-A publisher is also not aware of the other publishers and the subscriber of the topic. It only publishes data to the topic, and that’s it. Publishers on a ROS topic are anonymous.
+A publisher is also not aware of the other publishers and the subscriber of the topic. It only publishes data to the topic, and that’s it. **Publishers on a ROS topic are anonymous.**
   
 So, each node which is publishing or subscribing to the topic is totally independent. For example, you could have 3 subscribers on the topic and no publisher. It’s still working, but the subscribers will just receive no data. If you have 2 publishers on the topic, and no subscriber, the data is just sent and no one receives it.
 
@@ -134,7 +135,7 @@ A node can publish and subscribe on many different topics.
   
 Let’s say that the radio transmitter node number 2 is publishing AM signal on the 98.7 topic, and FM signal on the 101.3 topic. The car can subscribe to the 101.3 topic, and decode FM signal at the same time.
 
-A node can contain multiple publishers, but also subscribers. The car, while listening to the radio, can publish its coordinates to a car_location topic.
+**A node can contain multiple publishers, but also subscribers**. The car, while listening to the radio, can publish its coordinates to a car_location topic.
   <br>
   <p align="center">
     <img src="https://user-images.githubusercontent.com/77807055/168093352-abc57d22-7716-4afd-a707-492ebd4867a6.jpg">
@@ -151,7 +152,7 @@ Note that for the real world analogy I used numbers with dots as topic name. Thi
 
 Technically speaking, the messages are sent over TCP/IP. The ROS libraries that you will use on your code, will provide you with enough abstraction so you don’t have to deal with the TCP/IP layer.
   
-### Aren't topics tired of being the middleman😢?
+### Aren't ROS topics tired of being the middleman😢?
   <br>
   <p align="center">
     <img width=500 src="https://media0.giphy.com/media/l396WS0aAT9hQ3HmU/200w.webp?cid=ecf05e477qxfmxy89rah3o621zmkeuwyg2prpjzbu56e44yr&rid=200w.webp&ct=g">
@@ -160,9 +161,9 @@ Technically speaking, the messages are sent over TCP/IP. The ROS libraries that 
   <br>
 
 ## Points to Note!
-- A topic has a message type. All publishers and subscribers on this topic must use the message type associated with the topic.
-- As you already know, you can write a node in multiple languages, using for example the roscpp library for C++, and rospy library for Python. Well, those libraries also include the Topic functionality. So, you can create a publisher or subscriber in any ROS supported language you want, directly inside ROS nodes.
-- When a node wants to publish something, it will inform the ROS master. When another node wants to subscribe to a topic, it will ask the ROS master from where it can get the data. You can see the ROS master as a DNS server for nodes to find where to communicate.
+- A topic has a message type. All publishers and subscribers on this topic **must use the message type associated with the topic**.
+- As you already know, you can write a node in multiple languages, using for example the roscpp library for C++, and rospy library for Python. Well, those libraries also include the Topic functionality. So, you can **create a publisher or subscriber in any ROS supported language you want**, directly inside ROS nodes.
+- When a node wants to publish something, it will inform the ROS master. When another node wants to subscribe to a topic, it will ask the ROS master from where it can get the data. You can see the **ROS master as a DNS server for nodes** to find where to communicate.
 
   
 </details>
@@ -170,11 +171,84 @@ Technically speaking, the messages are sent over TCP/IP. The ROS libraries that 
 <details>
   <summary><h1>3. Services</h1></summary>
   
+A ROS service is a **client/server system**. Let's go with a real world analogy again of a weather service.
+
+## Our first ROS service
+The weather service gives us the local weather after we send our location. You, on your computer, are considered as the client, and the weather service online is the server. You will be able to access the server through an HTTP request, with a URL. Think as the HTTP URL as a ROS service.
+
+First of all, your computer will send a request to the server. The request will contain a message, in this case your location. The server will then process the request, and send a response. The response will also contain a message.
+
+The request sent by the client must be a location. And the server must send back a weather.
+  <br>
+  <p align ="center">
+    <img src="https://user-images.githubusercontent.com/77807055/168376907-fcdf0cf8-0594-4016-8b51-eaa8e026ad22.jpg">
+  </p>
+  <br>
+
+## Multiple clients for one service
+Multiple clients can also send a request containing a location to the server, through the HTTP URL. The server will then process the requests and send back a response to each client. **Note that you should not have more than one server for the same service**.
+  <br>
+  <p align="center">
+    <img src="https://user-images.githubusercontent.com/77807055/168376977-2bfb6629-eee5-4251-9907-59f2af7ae77f.jpg">
+  </p>
+  <br>
+
+Here, we have 3 different computer nodes, and one node for the weather service. The HTTP URL can be seen as a ROS service. The computer nodes contain a service client. This service client will call the ROS service and send a request with a location. On the other side, the weather service contains a ROS service server which will process all requests and send back a response through the ROS service.
+
+Again, **all clients and the server inside nodes are not aware of each other**. They only see up to the ROS service interface.
+
+## Points to Note
+Here are some of the main characteristics of a ROS service:
+
+- It is **synchronous**. The client sends a requests, and blocks until it receives a response.
+- You should use ROS services **only for computations and quick actions**. For example the client will send some data, and receive another piece of data. Or for example, if you want to enable or disable an actuator, or any immediate action. As the service call is blocking, you don’t want your client to be stuck for too long.
+- **A service is defined by a name, and a pair of messages**. One message is the request, one message is the response. You must respect the format of the data on both side of the communication.
+- As for nodes and topics, you can directly create service clients and servers inside ROS nodes, using for example the rosccp library for c++ and the rospy library for Python.
+  
+Topics will be used for unidirectional data streams, and services will be used when you need a client/server architecture.
+  <br>
+  <p align="center">
+    <img width=500 src="https://media2.giphy.com/media/yxt1GCEZ4u9tl5z4br/200w.webp?cid=ecf05e473ix2ifup29mnlitelejzbu7qud8amlf09zwnu6c4&rid=200w.webp&ct=g">
+  </p>
+  <br>
 </details>
 
 <details>
   <summary><h1>4. Parameters</h1></summary>
   
+## Why do you need ROS parameters ?
+Suppose you want to create some global settings in your application, for example:
+- The name of your robot.
+- The frequency at which you read some sensors.
+- A simulation flag that you can use in all your nodes to inform that the robot is running in real mode or simulation mode.
+  
+You certainly don’t want to hardcode those settings in all your nodes or get too many useless dependencies between your nodes.
+
+So, you need a sort of global dictionary for shared settings in your application, that can be retrieved at runtime, when you launch your nodes.
+
+## The ROS parameter server
+After you launch the ROS master, the parameter server is automatically created inside the ROS master.
+  <br>
+  <p align="center">
+    <img src="https://user-images.githubusercontent.com/77807055/168381409-0d2970f8-008c-43e7-8641-67655c7ef7bb.jpg">
+  </p>
+  <br>
+
+The parameter server is basically **a dictionary containing global variables (ROS parameters) which are accessible from anywhere in the current ROS environment**.
+<br>
+  <p align="center">
+    <img src="https://user-images.githubusercontent.com/77807055/168381486-30e25e8d-5a6e-470e-9ae5-09f43f6d016d.jpg">
+  </p>
+  <br>
+  
+At any time, **a node can read a parameter, modify a parameter, and can create new ones**. Like in the figure, any of the 4 nodes in 3 packages can get access to the ROS parameter server given that the nodes should be on the same environment as the ROS master.
+
+A ROS parameter has a name, and a data type. Among the most common types, you can use:
+- Boolean
+- Integer number
+- Double number
+- String
+- List of previous data types
 </details>
 
 <details>
