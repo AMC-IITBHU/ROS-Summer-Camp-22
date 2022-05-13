@@ -156,12 +156,15 @@ The concept of topics, publishers, and subscribers is illustrated in the figure:
   import rospy
   from std_msgs.msg import String
   #Callback function to print the subscribed data on the terminal
+  
   def callback_str(subscribedData):
        rospy.loginfo('Subscribed: ' + subscribedData.data)
+  
   def messageSubscriber():
       rospy.init_node('messageSubNode', anonymous=False)
       rospy.Subscriber('/messageTopic', String, callback_str)
       rospy.spin()
+  
   if __name__ == '__main__':
       try:
           messageSubscriber()
@@ -185,9 +188,33 @@ The concept of topics, publishers, and subscribers is illustrated in the figure:
   rosrun beginner_tutorials learn_subscribers.py
   ```
   
-  Now the above node has subscribed to the topic "/messageTopic". If you are getting a error, the reason would be you are not running the pubslisher node taught above
+  Now the above node has subscribed to the topic "/messageTopic". If you are getting a error, the reason would be you are not running the pubslisher node taught above 
   
-  In the termianl you will see a message is being printed. 
+  In the termianl you will see a message is being printed.
+  "Subscribed: ROS Tutorial by Aero Modelling Club, IIT BHU Varanasi"
+  
+  lets decode the above code line by line. 
+  
+  ```python
+  #!/usr/bin/env python3
+  import rospy
+  from std_msgs.msg import String
+  ```
+  
+  This is already taught in publishers. First line is the path of python interpreter and the subsequent two lines are imports of required python packages.
+  
+  Now the function messageSubscriber()
+  
+  ```python
+  rospy.init_node('messageSubNode', anonymous=False)
+  rospy.Subscriber('/messageTopic', String, callback_str)
+  rospy.spin()
+  ```
+  
+  This declares that your node subscribes to the chatter topic which is of type std_msgs.msgs.String. When new messages are received, a callback function is invoked with the message as the first argument.
+  
+  The final addition, rospy.spin() simply keeps your node from exiting until the node has been shutdown. Unlike roscpp, rospy.spin() does not affect the subscriber callback functions, as those have their own threads.
+  
   
 </details>  
 
