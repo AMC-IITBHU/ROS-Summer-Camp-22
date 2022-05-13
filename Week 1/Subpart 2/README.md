@@ -165,6 +165,8 @@ Technically speaking, the messages are sent over TCP/IP. The ROS libraries that 
 - As you already know, you can write a node in multiple languages, using for example the roscpp library for C++, and rospy library for Python. Well, those libraries also include the Topic functionality. So, you can **create a publisher or subscriber in any ROS supported language you want**, directly inside ROS nodes.
 - When a node wants to publish something, it will inform the ROS master. When another node wants to subscribe to a topic, it will ask the ROS master from where it can get the data. You can see the **ROS master as a DNS server for nodes** to find where to communicate.
 
+Again, I want you to head over to the following tutorial to visualise topics using command line:
+  - [Understanding Topics](http://wiki.ros.org/ROS/Tutorials/UnderstandingTopics)
   
 </details>
 
@@ -249,14 +251,67 @@ A ROS parameter has a name, and a data type. Among the most common types, you ca
 - Double number
 - String
 - List of previous data types
+
+See for yourself how services and parameters actually work:
+  - [Understanding Services and Parameters](http://wiki.ros.org/ROS/Tutorials/UnderstandingServicesParams)
+
+### Too much for now, isn't it?
+  <p align="center">
+    <img src="https://media0.giphy.com/media/hqOOKhJXtk3T7JqX8t/200w.webp?cid=ecf05e47sc05y03z38zyvzrya9f8ulw3qmp98itmrh7u0ic6&rid=200w.webp&ct=g">
+  </p>
+  <br>
 </details>
 
 <details>
-  <summary><h1>5. Msg</h1></summary>
+  <summary><h1>5. Msg and Srv</h1></summary>
+  <p align="center">
+    <img src="https://media4.giphy.com/media/xT1R9LUBYOXB4b8E6Y/200.webp?cid=ecf05e475z1guf8z6i739bizam8pk7t2iy3wskys0ccrydej&rid=200.webp&ct=g">
+  </p>
+  <br>
   
-</details>
+## ROS messages in topics and services
+- A topic is defined by 2 things:
+  - A name, which is the interface to reach.
+  - A message definition, which is the data structure of the information you send.
+  
+- A service is also defined by 2 things:
+  - A name, which is the interface to reach.
+  - A service definition that contains one message definition for the request, and one message definition for the response.
 
-<details>
-  <summary><h1>6. Srv</h1></summary>
+Well, **you can see topics and services as the communication layer tools, and messages as the actual content you send.**
+
+## Yay, another real life example
+When you send a mail, the transport company will transport your letter. The content of this letter is the analogy of a ROS message.
+  <br>
+  <p align="center">
+    <img src="https://user-images.githubusercontent.com/77807055/168383691-8ad32c75-6b3c-40af-aeb0-d424399b290b.jpg">
+  </p>
+  <br>
   
+When you send a letter and you wait for a response, then the first letter contains a Request message, and the letter that you receive back contains a Response message. The combination of the two message definitions is the service definition.
+  <br>
+  <p align="center">
+    <img src="https://user-images.githubusercontent.com/77807055/168383720-b0467180-9e44-45b1-9ed3-baf31418c224.jpg">
+  </p>
+  <br>
+
+## How are ROS messages created ?
+So, first you create a message definition. When you use the catkin_make command line, the message will be parsed by the build system. And then, a source code will be generated for this message, in any ROS supported language: C++, Python etc.
+
+That’s why you can, for example, directly include the message header in your C++ code. Because the build system generated this header file.
+  <br>
+  <p align="center">
+    <img src="https://user-images.githubusercontent.com/77807055/168383753-a0d04394-2b99-4c70-85a3-192c00d4e7da.jpg">
+  </p>
+  <br>
+ 
+Head over to the following tutorial to see in depth how messages are actually created👇
+- [Creating Msg and Srv](http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrv)
+  
+#### As I promised, this is the last component. Now, straighten your back a li'll bit and take time to grasp these concepts, get familiar with their command line usages, we will meet you next in Subpart 3. Till then...
+  <br>
+  <p align="center">
+    <img width=500 src="https://media2.giphy.com/media/aePS31pKg94KSh8Cl3/200w.webp?cid=ecf05e47sce1s23e2wywcn2i8f7azmbqhpf6qngswvutiioi&rid=200w.webp&ct=g">
+  </p>
+  <br>
 </details>
