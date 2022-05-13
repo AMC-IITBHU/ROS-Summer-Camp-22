@@ -39,4 +39,37 @@
 
 ### Now that we have rejuvenated the curiosity inside you, tada! you are good to go to the week 1:tada:
 
+## Who are we?
+<center>
+ <table>
+   
+  <td align="center">
+     <a href="https://github.com/Srini-Rohan">
+     <img src="https://avatars.githubusercontent.com/u/76437900?v=4" width="100px;" alt=""/>
+       <br>
+       <sub><b>Gujulla Leel Srini Rohan </b></sub>
+     </a>
+     <br>
+  </td>
+    
+  <td align="center">
+     <a href="https://github.com/Somya-Bansal159">
+     <img src="https://avatars.githubusercontent.com/u/77807055?v=4" width="100px;" alt=""/>
+       <br />
+       <sub><b>Somya Bansal</b></sub>
+     </a>
+     <br>
+  </td>
+   
+  <td align="center">
+     <a href="https://github.com/sherlockholmes1603">
+     <img src="https://avatars.githubusercontent.com/u/77875542?v=4" width="100px;" alt=""/>
+       <br />
+       <sub><b>CHAHAK JETHANI</b></sub>
+     </a>
+     <br>
+  </td>
+    
+ </table>
+</center>
 
