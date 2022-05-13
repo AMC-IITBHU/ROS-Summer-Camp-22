@@ -24,10 +24,9 @@ Also just look at [gedit](https://www.howtogeek.com/413514/how-to-edit-text-file
 ### Watch this short video to get a quick introduction of what ROS exactly is!
 <p align="center">
   <a href="https://vimeo.com/639236696">
-    <img src="assets/ROS.png">
+    <img width=500 src="assets/ROS.png">
   </a>
 </p>
-<br>
 
 ### Moving on to this week's content, we have covered catkin packages, and a few concepts:-
 - ROS Topics and ROS Nodes
