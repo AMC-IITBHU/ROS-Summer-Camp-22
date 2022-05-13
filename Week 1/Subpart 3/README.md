@@ -145,6 +145,50 @@ The concept of topics, publishers, and subscribers is illustrated in the figure:
   
   The loop also calls rospy.loginfo , which performs triple-duty: the messages get printed to screen, it gets written to the Node's log file, and it gets written to rosout.
   
+  #Subscribers
+  
+  Move to the ros package that you created before. Inside the package create a folder named scripts. Inside the scripts folder create a python file with any name you like. Here I am using the name "learn_subscribers.py"
+
+  In the python file put the following code 
+  
+  ```python
+  #!/usr/bin/env python3
+  import rospy
+  from std_msgs.msg import String
+  #Callback function to print the subscribed data on the terminal
+  def callback_str(subscribedData):
+       rospy.loginfo('Subscribed: ' + subscribedData.data)
+  def messageSubscriber():
+      rospy.init_node('messageSubNode', anonymous=False)
+      rospy.Subscriber('/messageTopic', String, callback_str)
+      rospy.spin()
+  if __name__ == '__main__':
+      try:
+          messageSubscriber()
+      except rospy.ROSInterruptException:
+          pass
+  ```
+  
+  Now open the terminal in the scripts folder and type
+  
+  ```bash
+  chmod a+x learn_subscribers.py #name of the python file created
+  ```
+  
+  Now open up a terminal and start roscore
+  
+  Now open up another terminal and type the following code to run the node for the publsihing the message
+  
+  ```bash
+  cd ~/catkin_ws
+  source devel/setup.bash
+  rosrun beginner_tutorials learn_subscribers.py
+  ```
+  
+  Now the above node has subscribed to the topic "/messageTopic". If you are getting a error, the reason would be you are not running the pubslisher node taught above
+  
+  In the termianl you will see a message is being printed. 
+  
 </details>  
 
 
