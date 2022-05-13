@@ -145,7 +145,7 @@ The concept of topics, publishers, and subscribers is illustrated in the figure:
   
   The loop also calls rospy.loginfo , which performs triple-duty: the messages get printed to screen, it gets written to the Node's log file, and it gets written to rosout.
   
-  #Subscribers
+  # Subscribers
   
   Move to the ros package that you created before. Inside the package create a folder named scripts. Inside the scripts folder create a python file with any name you like. Here I am using the name "learn_subscribers.py"
 
