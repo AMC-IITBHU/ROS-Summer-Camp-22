@@ -308,7 +308,14 @@ That’s why you can, for example, directly include the message header in your C
 Head over to the following tutorial to see in depth how messages are actually created👇
 - [Creating Msg and Srv](http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrv)
   
-#### As I promised, this is the last component. Now, straighten your back a li'll bit and take time to grasp these concepts, get familiar with their command line usages, we will meet you next in Subpart 3. Till then...
+#### As I promised, this is the last component. If you have come down this far, then trust me...
+  <br>
+  <p align="center">
+    <img src="https://media1.giphy.com/media/loA2it5PFS5fBt6Ud3/200w.webp?cid=ecf05e47uuu4e31br0s8ig6carft73xggwova2me5kigmclb&rid=200w.webp&ct=g">
+  </p>
+  <br>
+  
+#### Now, straighten your back a li'll bit and take time to grasp these concepts, get familiar with their command line usages, we will meet you next in Subpart 3. Till then...
   <br>
   <p align="center">
     <img width=500 src="https://media2.giphy.com/media/aePS31pKg94KSh8Cl3/200w.webp?cid=ecf05e47sce1s23e2wywcn2i8f7azmbqhpf6qngswvutiioi&rid=200w.webp&ct=g">
