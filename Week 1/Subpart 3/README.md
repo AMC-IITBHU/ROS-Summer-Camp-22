@@ -61,11 +61,11 @@ The concept of topics, publishers, and subscribers is illustrated in the figure:
   from std_msgs.msg import String
   #function to publish messages at the rate of 2 messages per second
   def messagePublisher():
-      message_publisher = rospy.Publisher(‘messageTopic’, String, queue_size=10)
+      message_publisher = rospy.Publisher(‘/messageTopic’, String, queue_size=10)
       rospy.init_node(‘messagePubNode’, anonymous=True)
       rate = rospy.Rate(2)
       while not rospy.is_shutdown():
-      message = “ROS Tutorial by Arsalan”
+      message = “ROS Tutorial by Aero Modelling Club, IIT BHU Varanasi”
       rospy.loginfo(‘Published: ‘ + message)
       message_publisher.publish(message)
       rate.sleep()
@@ -92,7 +92,9 @@ The concept of topics, publishers, and subscribers is illustrated in the figure:
   source devel/setup.bash
   rosrun beginner_tutorials learn_publishers.py
   ```
-
+  
+  Now a topic is being published with name "/messageTopic". Use the rostopic list command to conform whether the topic is being published. Use the rostopic echo command to see what is being published to the topic. 
+ 
   Now let us decode the above code line by line
   
   ```python
@@ -104,7 +106,8 @@ The concept of topics, publishers, and subscribers is illustrated in the figure:
   
   The first line is just a comment, then why are we explaining this. Well the thing is in the line this comment mentions the path of your python interpreter. In the subsequent lines we have imported the required python packages. First is rospy which is python client library for ROS. Second is std_msgs.msg. The std_msgs.msg import is so that we can reuse the std_msgs/String message type (a simple string container) for publishing. 
   
-  Next is the function  messagePublisher 
+  Next is the function  messagePublisher() 
+  Let us decode it.
   
   ```python
   message_publisher = rospy.Publisher(‘messageTopic’, String, queue_size=10)
