@@ -45,7 +45,9 @@ http://wiki.ros.org/ROS/Tutorials/BuildingPackages<br> -->
 
 <details>
   <summary><h1>Creating ROS Package</h1></summary>
-  
+                              
+  ![6g511m](https://user-images.githubusercontent.com/76437900/168428605-4186fa9a-46af-45df-8397-d6ae606d9e96.jpg)
+
   ```bash
    cd ~/catkin_ws/src
    catkin_create_pkg path_follower rospy roscpp 
