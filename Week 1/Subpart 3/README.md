@@ -224,6 +224,10 @@ The concept of topics, publishers, and subscribers is illustrated in the figure:
   
   Here we will make a ros service and client for addition of two integers.
   
+  # Writing a service node
+  
+  
+  
   Move to the ros package that you created before. Inside the package create a folder named scripts. Inside the scripts folder create a python file with any name you like. Here I am using the name "learn_server.py"
 
   In the python file put the following code 
@@ -231,7 +235,7 @@ The concept of topics, publishers, and subscribers is illustrated in the figure:
   ```python
   #!/usr/bin/env python3
 
-  from std_srvs.srv import AddTwoInts,AddTwoIntsResponse
+  from beginner_tutorials.srv import AddTwoInts,AddTwoIntsResponse
   import rospy
 
   def handle_add_two_ints(req):
@@ -240,12 +244,119 @@ The concept of topics, publishers, and subscribers is illustrated in the figure:
 
   if __name__ == "__main__":
       rospy.init_node('add_two_ints_server')
-      s = rospy.Service('add_two_ints', AddTwoInts, handle_add_two_ints)
+      s = rospy.Service('/add_two_ints', AddTwoInts, handle_add_two_ints)
       print("Ready to add two ints.")
       rospy.spin()
   ```
   
-  The first three would be already clear to you. The std_srvs.srv is so  that we can reuse the std_srvs/srv service type (a simple string container) for publishing.
+  Now open the terminal in the scripts folder and type
+  
+  ```bash
+  chmod a+x learn_service.py #name of the python file created
+  ```
+  
+  Now open up a terminal and start roscore
+  
+  Now open up another terminal and type the following code to run the node for starting the rosservice
+  
+  ```bash
+  cd ~/catkin_ws
+  source devel/setup.bash
+  rosrun beginner_tutorials learn_service.py
+  ```
+  
+  Now if you do rosservice list you must see "/add_two_ints"
+  
+  To call this rosservice 
+  
+  ```bash
+  rosservice call /add_two_ints beginner_tutorials/AddTwoInts "a: 2 b: 2"
+  ```
+  
+  The first three would be already clear to you. The beginner_tutorials.srv import is for using 
+  
+  
+  Now rospy.init_node has already been explained. 
+  
+  ```python
+  s = rospy.Service('/add_two_ints', AddTwoInts, handle_add_two_ints)
+  ```
+  
+  This declares a new service named add_two_ints with the AddTwoInts service type. All requests are passed to handle_add_two_ints function. handle_add_two_ints is called with instances of AddTwoIntsRequest and returns instances of AddTwoIntsResponse.
+  
+  
+  # Writing a client node
+  
+  
+  Move to the ros package that you created before. Inside the package create a folder named scripts. Inside the scripts folder create a python file with any name you like. Here I am using the name "learn_client.py"
+
+  In the python file put the following code 
+  
+  ```python
+  #!/usr/bin/env python
+  import sys
+  import rospy
+  from beginner_tutorials.srv import *
+
+  def add_two_ints_client(x, y):
+      rospy.wait_for_service('add_two_ints')
+      try:
+          add_two_ints = rospy.ServiceProxy('add_two_ints', AddTwoInts)
+          resp1 = add_two_ints(x, y)
+          return resp1.sum
+      except rospy.ServiceException as e:
+          print("Service call failed: %s"%e)
+
+  if __name__ == "__main__":
+      print("Give two numbers for input")
+      x = int(input())
+      y = int(input())
+      print("Requesting %s+%s"%(x, y))
+      print("%s + %s = %s"%(x, y, add_two_ints_client(x, y)))
+  ```
+  
+  Now open the terminal in the scripts folder and type
+  
+  ```bash
+  chmod a+x learn_service.py #name of the python file created
+  ```
+  
+  Now open up a terminal and start roscore
+  
+  Now open up another terminal and type the following code to run the node for starting the client node
+  
+  ```bash
+  cd ~/catkin_ws
+  source devel/setup.bash
+  rosrun beginner_tutorials learn_service.py
+  ```
+  
+  The program will take 2 numbers as input and then return their addition. 
+  
+  If Program is showing "waiting For service ....." then you have not started the server node mentioned above
+  
+  Now the next part is understanding the code
+  
+  ```python
+  rospy.wait_for_service('add_two_ints')
+  ```
+  
+  rospy.wait_for_service is a convenience method that blocks until the service named add_two_ints is available.
+  
+  Next we create a handle for calling the service:
+  
+  ```python
+  add_two_ints = rospy.ServiceProxy('add_two_ints', AddTwoInts)
+  ```
+  
+  We can use this handle just like a normal function and call it:
+  
+  ```python
+        resp1 = add_two_ints(x, y)
+        return resp1.sum
+  ```
+  
+  Because we've declared the type of the service to be AddTwoInts, it does the work of generating the AddTwoIntsRequest object for you (you're free to pass in your own instead). The return value is an AddTwoIntsResponse object.
   
   
 </details>
