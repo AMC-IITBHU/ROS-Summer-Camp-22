@@ -42,8 +42,8 @@ http://wiki.ros.org/ROS/Tutorials/BuildingPackages<br> -->
   
   The above command is used to create package in ROS
   The command contains 3 parts 
-  1. catkin_create_pkg which indicates your creating package
-  2. path_follower package name (The folder name in which you keep your code files)
+  1. catkin_create_pkg : which indicates your creating package
+  2. path_follower : package name (The folder name in which you keep your code files)
   3. rospy roscpp PX4 : These are dependecies for the package 
   
   For example if you need to create a package for path following you need a controller. You can use the open source PX4 controller. Hence in the code which u write u need to use the PX4 functions to control drone So, PX4 is depedency for your package. 
@@ -51,5 +51,30 @@ http://wiki.ros.org/ROS/Tutorials/BuildingPackages<br> -->
   roscpp is the package which you need to keep as dependency when your coding in C++
   
   rospy is the package which you need to keep as dependency when your coding in python
+  
+  <h3>Buildng the Package</h3>
+  
+  As you know in ROS we can use multiple code files to integrate all code files, to use functionalities of all code files we need to build the package.
+  For building the package we use CMake and Catkin Build.
+  In home directory type below commands to build all packages in the worksapce at once
+  
+  ```bash
+   source /opt/ros/noetic/setup.bash
+   cd catkin_ws
+   catkin_make
+  ```
+  After building the package ,the structure of package will be
+  
+  ```bash
+  .
+├── CMakeLists.txt
+├── package.xml
+└── src
+    └── code.py
+
+  ```
+  [Further Reading 1](http://wiki.ros.org/ROS/Tutorials/CreatingPackage)
+  [Further Reading 2](http://wiki.ros.org/ROS/Tutorials/BuildingPackages)
+  
   
 </details>
