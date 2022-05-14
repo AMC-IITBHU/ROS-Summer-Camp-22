@@ -46,7 +46,7 @@ http://wiki.ros.org/ROS/Tutorials/BuildingPackages<br> -->
 <details>
   <summary><h1>Creating ROS Package</h1></summary>
                               
-            ![6g511m](https://user-images.githubusercontent.com/76437900/168428605-4186fa9a-46af-45df-8397-d6ae606d9e96.jpg)
+  ![6g511m](https://user-images.githubusercontent.com/76437900/168428605-4186fa9a-46af-45df-8397-d6ae606d9e96.jpg)
 
   ```bash
    cd ~/catkin_ws/src
@@ -130,7 +130,7 @@ http://wiki.ros.org/ROS/Tutorials/BuildingPackages<br> -->
   ```
   this outputs the path of path_follower package
   
-            ![6g51hj](https://user-images.githubusercontent.com/76437900/168428745-662e6b09-1245-4a0d-ab80-def4470feaef.jpg)
+  ![6g51hj](https://user-images.githubusercontent.com/76437900/168428745-662e6b09-1245-4a0d-ab80-def4470feaef.jpg)
 
   ```bash
    roscd path_follower
