@@ -8,9 +8,7 @@
 - Now, create a launch file that includes the above mentioned nodes and pass appropriate arguments such that the combination of turtles do something like this 👇
 
 
-<p align="center"
-   <iframe src="https://user-images.githubusercontent.com/77807055/168445262-af40cf3a-a743-4925-a659-4b7bfb2f9c8d.mp4"/>
-   </p>
+https://user-images.githubusercontent.com/77807055/168445262-af40cf3a-a743-4925-a659-4b7bfb2f9c8d.mp4
 
 
 #### What I want is that you launch a single launch file in the terminal, and the above simulation should start without typing any other command.
