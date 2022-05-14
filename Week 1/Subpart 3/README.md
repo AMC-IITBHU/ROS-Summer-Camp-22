@@ -35,6 +35,10 @@ make sure to cover these
   </launch>
   ```
   
+  Now let us decode this code. The first line is the version of xml that ur editor is using
+  
+  <node name="node_name" pkg="name_of_package" type="name of python or c++ file you want to run" output="screen"/>
+  
   
 </details>
 
