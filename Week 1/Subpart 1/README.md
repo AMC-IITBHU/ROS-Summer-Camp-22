@@ -37,20 +37,26 @@ http://wiki.ros.org/ROS/Tutorials/BuildingPackages<br> -->
   <summary><h1>Creating ROS Package</h1></summary>
   
   ```bash
-   catkin_create_pkg path_follower rospy roscpp PX4
+   catkin_create_pkg path_follower rospy roscpp 
   ```
   
   The above command is used to create package in ROS
   The command contains 3 parts 
   1. catkin_create_pkg : which indicates your creating package
   2. path_follower : package name (The folder name in which you keep your code files)
-  3. rospy roscpp PX4 : These are dependecies for the package 
+  3. rospy roscpp : These are dependecies for the package 
   
-  For example if you need to create a package for path following you need a controller. You can use the open source PX4 controller. Hence in the code which u write u need to use the PX4 functions to control drone So, PX4 is depedency for your package. 
+  For example if you need to create a package for path following you need a controller. You can use the open source PX4 controller. Hence in the code which u write u need to use the PX4 functions to control drone So, PX4 should be depedency for your package. 
   
   roscpp is the package which you need to keep as dependency when your coding in C++
   
   rospy is the package which you need to keep as dependency when your coding in python
+  
+   To list dependencies we use below command
+  ```bash
+    rospack depends1 path_follower 
+  ```
+  Here depends1 represents the 1st order dependencies of package like rospy roscpp for the above package. Dependency packages of 1st order packages are called indirect depedencies 
   
   <h3>Buildng the Package</h3>
   
@@ -73,6 +79,28 @@ http://wiki.ros.org/ROS/Tutorials/BuildingPackages<br> -->
     └── code.py
 
   ```
+  You can see the new files CMakeLists.txt and package.xml which are generated while building the package 
+  
+  In CMakeLists.txt
+  
+  ```cmake
+    find_package(catkin REQUIRED COMPONENTS
+    roscpp
+    rospy
+    )
+  ```
+  The code snippit has the dependency packages which was specified during creating package. There are some lines which specify depedency packages in package.xml too.
+  
+  ```xml
+    <build_depend>roscpp</build_depend>
+    <build_depend>rospy</build_depend>
+    <build_export_depend>roscpp</build_export_depend>
+    <build_export_depend>rospy</build_export_depend>
+    <exec_depend>roscpp</exec_depend>
+    <exec_depend>rospy</exec_depend>
+  ``
+  You should change the above two code snippets to add or delete dependency accordingly.
+  
   [Further Reading 1](http://wiki.ros.org/ROS/Tutorials/CreatingPackage)
   
   [Further Reading 2](http://wiki.ros.org/ROS/Tutorials/BuildingPackages)
