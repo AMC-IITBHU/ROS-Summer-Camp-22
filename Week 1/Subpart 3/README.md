@@ -219,3 +219,34 @@ The concept of topics, publishers, and subscribers is illustrated in the figure:
 </details>  
 
 
+<details>
+  <summary><h1>4. Coding for Service and Client</h1></summary>
+  
+  Here we will make a ros service and client for addition of two integers.
+  
+  Move to the ros package that you created before. Inside the package create a folder named scripts. Inside the scripts folder create a python file with any name you like. Here I am using the name "learn_server.py"
+
+  In the python file put the following code 
+  
+  ```python
+  #!/usr/bin/env python3
+
+  from std_srvs.srv import AddTwoInts,AddTwoIntsResponse
+  import rospy
+
+  def handle_add_two_ints(req):
+      print("Returning [%s + %s = %s]"%(req.a, req.b, (req.a + req.b)))
+      return AddTwoIntsResponse(req.a + req.b)
+
+  if __name__ == "__main__":
+      rospy.init_node('add_two_ints_server')
+      s = rospy.Service('add_two_ints', AddTwoInts, handle_add_two_ints)
+      print("Ready to add two ints.")
+      rospy.spin()
+  ```
+  
+  The first three would be already clear to you. The std_srvs.srv is so  that we can reuse the std_srvs/srv service type (a simple string container) for publishing.
+  
+  
+</details>
+
