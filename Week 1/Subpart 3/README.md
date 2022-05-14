@@ -15,6 +15,12 @@ make sure to cover these
 
   Fortunately, ROS has a tool called roslaunch that enables you to launch multiple nodes all at once. Let’s do that now.
   
+  <br>
+<p align="center">
+  <img src="https://github.com/AMC-IITBHU/ROS-Summer-Camp-22/blob/main/Week%201/assets/roslaunch_meme.jpeg">
+</p>
+<br>  
+  
   # Directions
   
   The first thing we need to do is to open a new terminal window and go to the hello_world package (or whatever package you want to launch). Create a folder named launch and inside it create a new launch file. Let the name of file be start.launch
@@ -232,7 +238,7 @@ make sure to cover these
 
 
 <details>
-  <summary><h1>4. Coding for Service and Client</h1></summary>
+  <summary><h1>3. Coding for Service and Client</h1></summary>
   
   Here we will make a ros service and client for addition of two integers.
   
