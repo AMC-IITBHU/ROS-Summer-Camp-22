@@ -5,10 +5,12 @@
 - It contains a client node named as spawn.py. When it is launched with appropriate arguments, it should call the spawn service to spawn a turtle in the turtlesim simulator at a specifc position and orientation.
 - It contains a publisher node named as star.py. When it is launched with appropriate arguments, it should publish the required velocity for a specific turtle on the cmd_vel topic, and that turtle in the turtlesim simulator should trace out a regular star (regular here means symmetric).
 - It contains a publisher node named as circle.py. When it is launched with appropriate arguments, it should publish the required velocity for a specific turtle on the cmd_vel topic, and that turtle in the turtlesim simulator should trace out a circle.
-- Now, create a launch file including the above mentioned nodes and pass appropriate arguments such that the combination of turtles do something like this 👇
+- Now, create a launch file that includes the above mentioned nodes and pass appropriate arguments such that the combination of turtles do something like this 👇
 
 
-https://user-images.githubusercontent.com/77807055/168445262-af40cf3a-a743-4925-a659-4b7bfb2f9c8d.mp4
+<p align="center"
+   https://user-images.githubusercontent.com/77807055/168445262-af40cf3a-a743-4925-a659-4b7bfb2f9c8d.mp4
+   </p>
 
 
 #### What I want is that you launch a single launch file in the terminal, and the above simulation should start without typing any other command.
