@@ -14,7 +14,7 @@ http://wiki.ros.org/ROS/Tutorials/BuildingPackages<br>
 ​	All the 3 parts were programmed in a controller.py file which made the code a huge mess. In ROS we can use separate code files of a single part (Ex: drone controller) kept separate folders called as **packages**. Example: there is a famous open source package called PX4 which is used to control drone in ROS. So handling code files in ROS is simple and easier.
 
   <h3>File Structure of Workspace</h3>
-  ```
+  ```bash
   .
 └── ros_ws
     └── src
@@ -23,7 +23,7 @@ http://wiki.ros.org/ROS/Tutorials/BuildingPackages<br>
         └── Package3
   ```
   <h3>Creating a Workspace</h3>
-  ```
+  ```bash
   mkdir -p ~/catkin_ws/src
   cd ~/catkin_ws/
   ```
