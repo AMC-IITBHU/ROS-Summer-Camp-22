@@ -33,12 +33,12 @@ http://wiki.ros.org/ROS/Tutorials/BuildingPackages<br> -->
   ```
   We need to activate the workspace
   ```bash
-    gedit .bashrc 
+   gedit .bashrc 
   ```
   A window will be opened add the below command at the last line
   
   ```bash
-    source devel ~/catkin_ws/devel/setup.bash
+   source devel ~/catkin_ws/devel/setup.bash
   ```
 
 </details>
@@ -69,7 +69,7 @@ http://wiki.ros.org/ROS/Tutorials/BuildingPackages<br> -->
   ```bash
     rospack depends1 path_follower 
   ```
-   Here depends1 represents the 1st order dependencies of package like rospy roscpp for the above package. Dependency packages of 1st order packages are called indirect dependencies  
+   Here depends1 represents the 1st order dependencies of package like rospy roscpp for the above package. Dependency packages of 1st order dependency packages are called indirect dependencies  
   
   <h3>Buildng the Package</h3>
   
@@ -124,17 +124,17 @@ http://wiki.ros.org/ROS/Tutorials/BuildingPackages<br> -->
    Generally, we use many packages and code files for a single project hence it's difficult to find the specific package we want. ROS provides commands to find packages in the ROS environment.
   
   ```bash
-    rospack find path_follower
+   rospack find path_follower
   ```
   this outputs the path of path_follower package
   
   ```bash
-    roscd path_follower
+   roscd path_follower
   ```
   this changes the directory to path_follower package
   
   ```bash
-    rosls path_follower
+   rosls path_follower
   ```
   This lists the files and folders present in path_follower package
   
