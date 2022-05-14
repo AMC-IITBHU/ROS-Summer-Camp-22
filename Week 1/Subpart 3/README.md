@@ -9,6 +9,36 @@ http://wiki.ros.org/ROS/Tutorials/ExaminingServiceClient<br>
 make sure to cover these
 
 <details>
+  <summary><h1>1. How to make a launch file</h1></summary>
+  
+  One way to execute a program in ROS it to launch one node at a time. But many a times you need to launch multiple nodes. Launching each node one-by-one can get inefficient really quickly.
+
+  Fortunately, ROS has a tool called roslaunch that enables you to launch multiple nodes all at once. Let’s do that now.
+  
+  # Directions
+  
+  The first thing we need to do is to open a new terminal window and go to the hello_world package (or whatever package you want to launch). Create a folder and inside it create a new launch file
+  
+  ```bash
+  cd catkin_ws/src/hello_world
+  mkdir launch
+  cd launch
+  ```
+  
+  ## Example 1 - launch turtlesim node and teleop for turtlesim node together.
+  
+  ```xml
+  <?xml version="1.0"?>
+  <launch>
+    <node name="turtlesim" pkg="turtlesim" type="turtlesim_node" output="screen"/>
+    <node name="turtlesim_teleop" pkg="turtlesim" type="turtle_teleop_key" output="screen"/>
+  </launch>
+  ```
+  
+  
+</details>
+
+<details>
   <summary><h1>1. Definition of Publishers and Subscribers</h1></summary>
   
   I think you already know about publishers and subscribers from subpart 2. Let me brief your memory about it.
