@@ -46,7 +46,7 @@ The concept of topics, publishers, and subscribers is illustrated in the figure:
 <details>
   <summary><h1>2. Coding for Publishers and Subscribers</h1></summary>
   
-  Publishers and Subscribers can be used by either rostopic pub and rostopic echo respectively or by writting a node in either python or c++. Here I will be explaining you how to write code in python as it is quite easy to understand but if want to learn c++ just tell us in discord and we will guide you for the same
+  Publishers and Subscribers can be used by either rostopic pub and rostopic echo respectively or by writting a node in either python or c++. 
   
   <br>
 <p align="center">
