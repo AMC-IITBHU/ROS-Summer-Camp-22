@@ -36,17 +36,20 @@ http://wiki.ros.org/ROS/Tutorials/BuildingPackages<br> -->
 <details>
   <summary><h1>Creating ROS Package</h1></summary>
   
-    ```bash
-      catkin_create_pkg path_follower rospy roscpp PX4
-    ```
+  ```bash
+   catkin_create_pkg path_follower rospy roscpp PX4
+  ```
   
   The above command is used to create package in ROS
   The command contains 3 parts 
   1. catkin_create_pkg which indicates your creating package
   2. path_follower package name (The folder name in which you keep your code files)
   3. rospy roscpp PX4 : These are dependecies for the package 
+  
   For example if you need to create a package for path following you need a controller. You can use the open source PX4 controller. Hence in the code which u write u need to use the PX4 functions to control drone So, PX4 is depedency for your package. 
+  
   roscpp is the package which you need to keep as dependency when your coding in C++
+  
   rospy is the package which you need to keep as dependency when your coding in python
   
 </details>
