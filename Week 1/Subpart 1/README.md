@@ -35,9 +35,11 @@ http://wiki.ros.org/ROS/Tutorials/BuildingPackages<br> -->
 
 <details>
   <summary><h1>Creating ROS Package</h1></summary>
-  ```bash
-   catkin_create_pkg path_follower rospy roscpp PX4
-  ```
+  
+    ```bash
+      catkin_create_pkg path_follower rospy roscpp PX4
+    ```
+  
   The above command is used to create package in ROS
   The command contains 3 parts 
   1. catkin_create_pkg which indicates your creating package
