@@ -17,7 +17,7 @@ make sure to cover these
   
   # Directions
   
-  The first thing we need to do is to open a new terminal window and go to the hello_world package (or whatever package you want to launch). Create a folder and inside it create a new launch file
+  The first thing we need to do is to open a new terminal window and go to the hello_world package (or whatever package you want to launch). Create a folder named launch and inside it create a new launch file. Let the name of file be start.launch
   
   ```bash
   cd catkin_ws/src/hello_world
@@ -35,10 +35,22 @@ make sure to cover these
   </launch>
   ```
   
-  Now let us decode this code. The first line is the version of xml that ur editor is using
+  Now let us decode this code. 
   
-  <node name="node_name" pkg="name_of_package" type="name of python or c++ file you want to run" output="screen"/>
+  The first line is the version of xml that ur editor is using
   
+  The file start and end with the launch tag, so that file is identified as a launch tag.
+  
+  ```xml
+  <node name="turtlesim" pkg="turtlesim" type="turtlesim_node" output="screen"/>
+  <node name="turtlesim_teleop" pkg="turtlesim" type="turtle_teleop_key" output="screen"/>
+  ```
+  
+  Here we start two nodes. One is to start turtlesim node i.e. to spawn the turtle in a window. Other node is to start the teleop node for turtlesim.
+  
+  Can you guess the name of these two nodes?
+  
+  If you wanna know more about roslaunch see this [tutorial for roslaunch](http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch)
   
 </details>
 
