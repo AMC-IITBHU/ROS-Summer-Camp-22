@@ -22,7 +22,7 @@
   cd launch
   ```
   
-  ## Example 1 - launch turtlesim node and teleop for turtlesim node together.
+  ## Example  - launch turtlesim node and teleop for turtlesim node together.
   
   ```xml
   <?xml version="1.0"?>
