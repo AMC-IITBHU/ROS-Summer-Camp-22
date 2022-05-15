@@ -117,12 +117,49 @@ namely /sim1/turtlesim_node and /sim2/turtlesim_node, are different.
   
   ```xml
   <launch>
- <node name="tu r tle sim_node " pkg=" t u r t l e s i m " type="tu r tle sim_node " ns="sim1 " />
- <node pkg=" t u r t l e s i m " type="t u r tl e_ t el e o p_ k e y " name="tele op_ ke y " r e q ui r e d="t r u e " launch − p r e f i x="xterm −e " ns="sim1 " />
- <node name="tu r tle sim_node " pkg=" t u r t l e s i m " type="tu r tle sim_node " ns="sim2 " />
- <node pkg=" a g i t r " type="pubvel " name=" v e l o c i t y _ p u bli s h e r " ns="sim2 " />
+ <node name="turtle_sim_node " pkg=" turtlesim " type="turtle_sim_node " ns="sim1 " />
+ <node pkg=" turtlesim " type="turtle_teleop_key " name="teleop_key" required="true" launch −prefix="xterm −e " ns="sim1 " />
+ <node name="turtlesim_node" pkg="turtlesim" type="turtle_sim_node " ns="sim2 " />
+ <node pkg="agitr" type="pubvel " name="velocity_publisher" ns="sim2 " />
  </launch>
   ```
+  
+  ### Creating remapings
+  
+  In addition to resolving relative names and private names, ROS nodes also support remappings, which provide a finer level of control for modifying the names used by our nodes.
+Remappings are based on the idea of substitution: Each remapping provides an original
+name and a new name. Each time a node uses any of its remappings’ original names, the
+ROS client library silently replaces it with the new name from that remapping.
+  
+  To remap names within a launch file, use a remap element:
+  
+  ```xml
+<remap from="original-name" to="new-name" />
+  ```
+  
+If it appears at the top level, as a child of the launch element, this remapping will
+apply to all subsequent nodes. These remap elements can also appear as children of
+a node element, like this:
+  
+  ```xml
+<node node-attributes >
+<remap from="original-name" to="new-name" />
+. . .
+</node>
+  ```
+  
+In this case, the given remappings are applied only to the single node that owns
+them. For example, the command line above is essentially equivalent to this launch
+file construction:
+  
+  ```xml
+<node pkg="turtlesim" type="turtlesim_node"
+name="turtlesim" >
+<remap from="turtle1/pose" to="tim" />
+</node>
+  ```
+  
+  
   
 </details>
 
