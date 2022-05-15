@@ -449,7 +449,7 @@ name="turtlesim" >
   ```bash
   cd ~/catkin_ws
   source devel/setup.bash
-  rosrun beginner_tutorials learn_service.py
+  rosrun beginner_tutorials learn_client.py
   ```
   
   The program will take 2 numbers as input and then return their addition. 
