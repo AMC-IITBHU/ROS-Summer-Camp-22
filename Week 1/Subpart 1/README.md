@@ -31,7 +31,7 @@ http://wiki.ros.org/ROS/Tutorials/BuildingPackages<br> -->
    cd ~/catkin_ws/
    catkin_make
   ```
-  We need to activate the workspace
+  We need to activate the workspace. In home directory type below command
   ```bash
    gedit .bashrc 
   ```
