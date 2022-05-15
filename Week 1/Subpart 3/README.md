@@ -49,6 +49,81 @@
   
   If you wanna know more about roslaunch see this [tutorial for roslaunch](http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch)
   
+  So this was just basics of launch file. There are even some other topics that have to be explained in a launch file
+  
+  ### Launching a node
+  
+  A node element generally looks like 
+  
+  ```xml
+<node pkg="package-name" type="executable-name" name="node-name" output="screen"/>
+  ```
+  
+  A node element has three required attributes:
+  
+  - The pkg and type attributes identify which program ROS should run to start this
+node. These are the same as the two command line arguments to rosrun, specifying
+the package name and the executable name, respectively
+  
+  - The name attribute assigns a name to the node. This overrides any name that the
+node would normally assign to itself in its call to ros::init.
+  
+  - Some nodes requires some arguments to be passed. It can be passed in following two ways
+  
+  ```xml
+  <node pkg="package-name" type="executable-name" name="node-name" output="screen" args="required arguments"/>
+  
+  <node pkg="package-name" type="executable-name" name="node-name" output="screen">
+    <param name="name of the argument" value="It's value" />
+  </node>
+  ```
+  
+  When some limited (one or two) number of argument have to be passeed to a node you can use the first else you should use the second method
+  
+  - Requesting respawning After starting all of the requested nodes, roslaunch monitors
+each node, keeping track of which ones remain active. For each node, we can ask roslaunch to restart it when it terminates, by using a respawn attribute:
+  
+respawn="true"
+  
+This can be useful, for example, for nodes that might terminate prematurely, due to software crashes, hardware problems, or other reasons.
+  
+  - Requiring nodes An alternative to respawn is to declare that a node is required:
+  
+required="true"
+  
+When a required node terminates, roslaunch responds by terminating all of the other active nodes and exiting itself. That sort of behavior might be useful, for example, for nodes
+that (a) are so important that, if they fail, the entire session should be abandoned, and (b)
+cannot be gracefully restarted by the respawn attribute.
+  
+  ### Launching nodes inside a namespace
+  
+   The usual way to set the default namespace for a node—a process
+often called pushing down into a namespace—is to use a launch file, and assign the ns
+attribute in its node element:
+  
+ns="namespace"
+  
+  - The usual turtlesim topic names (turtle1/cmd_vel, turtle1/color_sensor, and
+turtle1/pose) are moved from the global namespace into separate namespaces called /sim1 and /sim2. This change occurs because the code for turtlesim_node uses
+relative names like turtle1/pose (instead of global names like /turtle1/pose), when
+it creates its ros::Publisher and ros::Subscriber objects
+  
+  - Likewise, the node names in the launch file are relative names. In this case, both
+nodes have the same relative name, turtlesim_node. Such identical relative names
+are not a problem, however, because the global names to which they are resolved,
+namely /sim1/turtlesim_node and /sim2/turtlesim_node, are different.
+  
+  An example for launching node inside a namespace is given below
+  
+  ```xml
+  <launch>
+ <node name="tu r tle sim_node " pkg=" t u r t l e s i m " type="tu r tle sim_node " ns="sim1 " />
+ <node pkg=" t u r t l e s i m " type="t u r tl e_ t el e o p_ k e y " name="tele op_ ke y " r e q ui r e d="t r u e " launch − p r e f i x="xterm −e " ns="sim1 " />
+ <node name="tu r tle sim_node " pkg=" t u r t l e s i m " type="tu r tle sim_node " ns="sim2 " />
+ <node pkg=" a g i t r " type="pubvel " name=" v e l o c i t y _ p u bli s h e r " ns="sim2 " />
+ </launch>
+  ```
+  
 </details>
 
 
