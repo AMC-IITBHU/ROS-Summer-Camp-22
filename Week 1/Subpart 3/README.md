@@ -394,7 +394,7 @@ name="turtlesim" >
   rosservice call /add_two_ints beginner_tutorials/AddTwoInts "a: 2 b: 2"
   ```
   
-  The first three would be already clear to you. The beginner_tutorials.srv import is for using 
+  The first three would be already clear to you.
   
   
   Now rospy.init_node has already been explained. 
@@ -414,7 +414,7 @@ name="turtlesim" >
   In the python file put the following code 
   
   ```python
-  #!/usr/bin/env python
+  #!/usr/bin/env python3
   import sys
   import rospy
   from beginner_tutorials.srv import *
