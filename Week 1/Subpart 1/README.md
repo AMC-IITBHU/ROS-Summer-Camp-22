@@ -38,7 +38,7 @@ http://wiki.ros.org/ROS/Tutorials/BuildingPackages<br> -->
   A window will be opened add the below command at the last line
   
   ```bash
-   source devel ~/catkin_ws/devel/setup.bash
+   source ~/catkin_ws/devel/setup.bash
   ```
 
 </details>
