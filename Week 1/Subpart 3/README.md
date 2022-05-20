@@ -190,15 +190,15 @@ name="turtlesim" >
   from std_msgs.msg import String
   #function to publish messages at the rate of 2 messages per second
   def messagePublisher():
-      message_publisher = rospy.Publisher(‘/messageTopic’, String, queue_size=10)
-      rospy.init_node(‘messagePubNode’, anonymous=True)
+      message_publisher = rospy.Publisher("/messageTopic", String, queue_size=10)
+      rospy.init_node("messagePubNode", anonymous=True)
       rate = rospy.Rate(2)
       while not rospy.is_shutdown():
           message = “ROS Tutorial by Aero Modelling Club, IIT BHU Varanasi”
-          rospy.loginfo(‘Published: ‘ + message)
+          rospy.loginfo("Published: " + message)
           message_publisher.publish(message)
           rate.sleep()
-  if __name__ == ‘__main__’:
+  if __name__ == "__main__":
       try:
           messagePublisher()
       #capture the Interrupt signals
@@ -239,8 +239,8 @@ name="turtlesim" >
   Let us decode it.
   
   ```python
-  message_publisher = rospy.Publisher(‘messageTopic’, String, queue_size=10)
-  rospy.init_node(‘messagePubNode’, anonymous=True)
+  message_publisher = rospy.Publisher("messageTopic", String, queue_size=10)
+  rospy.init_node("messagePubNode", anonymous=True)
   ```
   
   This section of code defines the talker's interface to the rest of ROS. 
@@ -257,7 +257,7 @@ name="turtlesim" >
   ```python
   while not rospy.is_shutdown():
         message = “ROS Tutorial by Aero Modelling Club, IIT BHU Varanasi”
-        rospy.loginfo(‘Published: ‘ + message)
+        rospy.loginfo("Published: " + message)
         message_publisher.publish(message)
         rate.sleep()
   ```
@@ -279,11 +279,11 @@ name="turtlesim" >
   #Callback function to print the subscribed data on the terminal
   
   def callback_str(subscribedData):
-       rospy.loginfo('Subscribed: ' + subscribedData.data)
+       rospy.loginfo("Subscribed: " + subscribedData.data)
   
   def messageSubscriber():
-      rospy.init_node('messageSubNode', anonymous=False)
-      rospy.Subscriber('/messageTopic', String, callback_str)
+      rospy.init_node("messageSubNode", anonymous=False)
+      rospy.Subscriber("/messageTopic", String, callback_str)
       rospy.spin()
   
   if __name__ == '__main__':
@@ -327,8 +327,8 @@ name="turtlesim" >
   Now the function messageSubscriber()
   
   ```python
-  rospy.init_node('messageSubNode', anonymous=False)
-  rospy.Subscriber('/messageTopic', String, callback_str)
+  rospy.init_node("messageSubNode", anonymous=False)
+  rospy.Subscriber("/messageTopic", String, callback_str)
   rospy.spin()
   ```
   
@@ -364,8 +364,8 @@ name="turtlesim" >
       return AddTwoIntsResponse(req.a + req.b)
 
   if __name__ == "__main__":
-      rospy.init_node('add_two_ints_server')
-      s = rospy.Service('/add_two_ints', AddTwoInts, handle_add_two_ints)
+      rospy.init_node("add_two_ints_server")
+      s = rospy.Service("/add_two_ints", AddTwoInts, handle_add_two_ints)
       print("Ready to add two ints.")
       rospy.spin()
   ```
@@ -400,7 +400,7 @@ name="turtlesim" >
   Now rospy.init_node has already been explained. 
   
   ```python
-  s = rospy.Service('/add_two_ints', AddTwoInts, handle_add_two_ints)
+  s = rospy.Service("/add_two_ints", AddTwoInts, handle_add_two_ints)
   ```
   
   This declares a new service named add_two_ints with the AddTwoInts service type. All requests are passed to handle_add_two_ints function. handle_add_two_ints is called with instances of AddTwoIntsRequest and returns instances of AddTwoIntsResponse.
@@ -422,7 +422,7 @@ name="turtlesim" >
   def add_two_ints_client(x, y):
       rospy.wait_for_service('add_two_ints')
       try:
-          add_two_ints = rospy.ServiceProxy('add_two_ints', AddTwoInts)
+          add_two_ints = rospy.ServiceProxy("add_two_ints", AddTwoInts)
           resp1 = add_two_ints(x, y)
           return resp1.sum
       except rospy.ServiceException as e:
@@ -459,7 +459,7 @@ name="turtlesim" >
   Now the next part is understanding the code
   
   ```python
-  rospy.wait_for_service('add_two_ints')
+  rospy.wait_for_service("add_two_ints")
   ```
   
   rospy.wait_for_service is a convenience method that blocks until the service named add_two_ints is available.
@@ -467,7 +467,7 @@ name="turtlesim" >
   Next we create a handle for calling the service:
   
   ```python
-  add_two_ints = rospy.ServiceProxy('add_two_ints', AddTwoInts)
+  add_two_ints = rospy.ServiceProxy("add_two_ints", AddTwoInts)
   ```
   
   We can use this handle just like a normal function and call it:
