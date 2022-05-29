@@ -11,7 +11,7 @@
   
   # Part 1 - 
   
-  Action first before the theory! Let's create a project in gazebo. Create a new package in your workspace with name of your choice. For now I am using the name "gazebo_tutorials". Inside the package create a folder world. Create a new file inside the folder with extension .world and place the following content 
+  Action first before the theory! Let's create a project in gazebo. Create a new package in your workspace with name of your choice. For now I am using the name "gazebo_tutorials". Inside the package create a folder world. Create a new file inside the folder with extension .world and place the following content (just do copy paste)
   
   ```xml
   <sdf version='1.7'>
@@ -475,7 +475,19 @@
 </sdf>
 ```
 
-Let the full name of file be new.world
+  Let the full name of file be new.world
+  
+  Now open a terminal and navigate to the world folder that we created and type
+  
+  ```bash
+  gazebo new.world
+  ```
+  
+  And you will see a new window of gazebo with some models in it.
+  
+  # Part 2 :
+  
+  Now we need to learn how to launch gazebo from a launch file. You definately don't want to open gazebo everytime by opening a terminal and then navigating to the folder containing launch file and blah blah. You need to learn to open gazebo from a launch file. 
   
   
   
