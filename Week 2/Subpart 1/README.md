@@ -489,6 +489,38 @@
   
   Now we need to learn how to launch gazebo from a launch file. You definately don't want to open gazebo everytime by opening a terminal and then navigating to the folder containing launch file and blah blah. You need to learn to open gazebo from a launch file. 
   
+  <p align="center">
+    <img width=500 src="https://github.com/AMC-IITBHU/ROS-Summer-Camp-22/blob/WEEK2BRANCH/Week%202/assests/gazebo_meme.jpeg">
+  </p>
+  
+  Make new launch file in the package gazebo_tutorial. Let the name be my_world.launch and paste the following content
+  
+  ```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<launch>
+        <!-- overwriting these args -->
+        <arg name="debug" default="false" />
+        <arg name="gui" default="true" />
+        <arg name="pause" default="false" />
+        <arg name="world" default="$(find gazebo_tutorial)/world/new.world" />
+
+        <!-- include gazebo_ros launcher -->
+        <include file="$(find gazebo_ros)/launch/empty_world.launch">
+                <arg name="world_name" value="$(arg world)" />
+                <arg name="debug" value="$(arg debug)" />
+                <arg name="gui" value="$(arg gui)" />
+                <arg name="paused" value="$(arg pause)" />
+                <arg name="use_sim_time" value="true" />
+        </include>
+</launch>
+  ```
+  
+  Now in the terminal write
+  
+  ```bash
+  roslaunch gazebo_tutorial my_world.launch
+  ```
+  
   
   
 </details>
