@@ -521,6 +521,31 @@
   roslaunch gazebo_tutorial my_world.launch
   ```
   
+  Now you see the same world as you saw before, isn't it?
   
+  
+  
+</details>
+
+<details>
+  <summary><h1>Gazebo </h1></summary>
+  
+  Coordinate transformations (or transforms) play a huge role in the mathematics of robotics. They are a a mathematical tool to take points or measurements that are represented from one point of view, and represent them in a different point of view that is more useful. Without using transformations, we would need to perform the calculations with trigonometry, which quickly becomes very complex with larger problems, and especially in 3D.
+  
+  ROS provides a system called tf2 (TransForm version 2) to handle these transformations for us. Any node can use the tf2 libraries to broadcast a transform from one frame to another. As mentioned above, these transforms will need to form a tree structure, where each frame is defined by one (and only one) transform from another frame, but can have any number of frames dependent on it. The picture below shows a portion of a tree that we’ll be exploring later. In this tree, base and camera are defined relative to world, and l3 is defined relative to base.
+  
+  <p align="center">
+    <img width=500 src="https://articulatedrobotics.xyz/media/assets/posts/ready-for-ros/tf_frames_small.png">
+  </p>
+  
+  Any node can also use the tf2 libraries to listen for transforms, and then use the transforms to convert points from any frame to any other frame, as long as they are connected in the tree.
+  
+  2 main tasks that users generally use tf for transform between coordinates are broadcasting and listening.
+  
+Broadcasting transforms:
+Publish the relative pose and coordinate to the system This allow us to setup our own relationship between two coordinate frames
+  
+Listening transforms:
+Specify the published transform and query the specific transform between coordinate frames whose transform you want to know (not quite the same as Subscribing to a Topic)
   
 </details>
