@@ -528,7 +528,7 @@
 </details>
 
 <details>
-  <summary><h1>Gazebo </h1></summary>
+  <summary><h1>Transforms </h1></summary>
   
   Coordinate transformations (or transforms) play a huge role in the mathematics of robotics. They are a a mathematical tool to take points or measurements that are represented from one point of view, and represent them in a different point of view that is more useful. Without using transformations, we would need to perform the calculations with trigonometry, which quickly becomes very complex with larger problems, and especially in 3D.
   
@@ -540,6 +540,10 @@
   
   Any node can also use the tf2 libraries to listen for transforms, and then use the transforms to convert points from any frame to any other frame, as long as they are connected in the tree.
   
+  <p align="center">
+    <img width=500 src="https://github.com/AMC-IITBHU/ROS-Summer-Camp-22/blob/WEEK2BRANCH/Week%202/assests/tf_meme.jpeg">
+  </p>
+  
   2 main tasks that users generally use tf for transform between coordinates are broadcasting and listening.
   
 Broadcasting transforms:
@@ -547,5 +551,46 @@ Publish the relative pose and coordinate to the system This allow us to setup ou
   
 Listening transforms:
 Specify the published transform and query the specific transform between coordinate frames whose transform you want to know (not quite the same as Subscribing to a Topic)
+  
+  # How to Brodcast Transform
+  
+  Let's write the code for brodcasting a frame
+  
+  ```python
+  #!/usr/bin/env python3  
+import rospy
+
+# Because of transformations
+import tf_conversions
+
+import tf2_ros
+import geometry_msgs.msg
+import turtlesim.msg
+
+
+def handle_turtle_pose(msg, turtlename):
+    br = tf2_ros.TransformBroadcaster()
+    t = geometry_msgs.msg.TransformStamped()
+
+    t.header.stamp = rospy.Time.now()
+    t.header.frame_id = "world"
+    t.child_frame_id = turtlename
+    t.transform.translation.x = msg.x
+    t.transform.translation.y = msg.y
+    t.transform.translation.z = 0.0
+    q = tf_conversions.transformations.quaternion_from_euler(0, 0, msg.theta)
+    t.transform.rotation.x = q[0]
+    t.transform.rotation.y = q[1]
+    t.transform.rotation.z = q[2]
+    t.transform.rotation.w = q[3]
+
+    br.sendTransform(t)
+
+if __name__ == '__main__':
+    rospy.init_node('tf2_turtle_broadcaster')
+    turtlename = rospy.get_param('~turtle')
+    rospy.Subscriber('/%s/pose' % turtlename, turtlesim.msg.Pose, handle_turtle_pose, turtlename)
+    rospy.spin()
+  ```
   
 </details>
