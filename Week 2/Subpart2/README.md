@@ -17,8 +17,11 @@
   Types of Joints:
   
   revolute - a hinge joint that rotates along the axis and has a limited range specified by the upper and lower limits.
+  
   continuous - a continuous hinge joint that rotates around the axis and has no upper and lower limits.
+  
   prismatic - a sliding joint that slides along the axis, and has a limited range specified by the upper and lower limits.
+  
   fixed - This is not really a joint because it cannot move. All degrees of freedom are locked. 
   
   Joints connects 2 links one of which is parent link other is child link
@@ -30,8 +33,22 @@
   1st thing which you need to do is to decide your base link.
   
   ```xml
-     
-  ```
-  
+<?xml version="1.0" ?>
+<robot name="AMC">
+  <link name="base_link">
+    <!-- pose -->
+    <pose>0 0 0.1 0 0 0</pose>
+    <!-- body -->
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.5 0.3 0.07"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <!-- caster front -->
+  </link>
+ </robot>
+ ```
  
 </details>
