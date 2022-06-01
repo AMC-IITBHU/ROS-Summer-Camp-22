@@ -32,12 +32,11 @@
   
   1st thing which you need to do is to decide your base link.
   
-  ```
+  ```xml
 <?xml version="1.0" ?>
 <robot name="AMC">
   <link name="base_link">
-    <!-- pose -->
-    <pose>0 0 0.1 0 0 0</pose>
+
     <!-- body -->
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -54,6 +53,37 @@
   </link>
  </robot>
  ```
- iicnoqn
+ Everything should be written under robot tag
+ In the above code you can see that there is a link tag and there are different parameters and tags inside it. Base Link and normal Links have same parameters and tags.
+ 
+ 1. Visual: It contains the visual aspects of link
+ 2. origin: it contains 6 float values which specify x,y,z and roll pitch yaw. This defines the frame of link. But the most important question is with respective which frame are these values given?
+ For base link it is given with respective to the world frame in simulator as in above example robot is present 0.1m above the ground.
+ For other links it is given with respective to the joint in which it is child. Except base links all other links will be as child link to atleast one joint.
+ Note: The coordinates specified in pose are the coordinates of center of link with respective to world frame for base link and joint frame for other links
+ 
+ 3.geometry: It contains the shape of the link
+ 4.Box: Here our base link is cuboid
+ 5. Collision: Visual tag just gives the view of robot. To make robot solid colision tag is used. Generally visual and collision tag have same values.
+ 
+ ```xml
+
+  <joint name="joint_right_wheel" type="continuous">
+    <origin rpy="0 0 0" xyz="-0.05 0.15 0"/>
+    <child link="link_right_wheel"/>
+    <parent link="base_link"/>
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+  </joint>
+ ```
+  1. Origin: Here origin is given with respective parent frame.
+  Note: Whenever you see frame of link it is same as that of frame of joint in which it is child. Hence frame of link_right_wheel is same as frame of joint_right_wheel.
+  Frame of Base link is center of the link.
+  2. Axis: As it is continuous joint child link rotates around the axis
+  Whole URDF of 2 wheeled robot
+
+  Further Reading 
+ 
+ 
+ 
  
 </details>
