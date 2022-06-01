@@ -32,7 +32,7 @@
   
   1st thing which you need to do is to decide your base link.
   
-  ```xml
+  ```
 <?xml version="1.0" ?>
 <robot name="AMC">
   <link name="base_link">
@@ -44,11 +44,16 @@
       <geometry>
         <box size="0.5 0.3 0.07"/>
       </geometry>
-      <material name="blue"/>
     </visual>
+    <collision name="collision_chassis">
+      <geometry>
+        <box size="0.5 0.3 0.07"/>
+      </geometry>
+    </collision>
     <!-- caster front -->
   </link>
  </robot>
  ```
+ iicnoqn
  
 </details>
